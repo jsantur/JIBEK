@@ -1,0 +1,190 @@
+/* LIBRO DE RECLAMACIONES - CES VALI THEME */
+
+.terms {
+    --content-width: 1100px;
+}
+.terms-content {
+    --content-width: 840px;
+}
+.terms header {
+    background: linear-gradient(90deg, #07294e 0%, #0a3a6b 64.4%);
+    color: #fff;
+    text-align: center;
+}
+.terms > div h3 {
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+    color: #5d5d5d;
+}
+.terms > div :is(ul, ol) {
+    margin-left: 20px;
+}
+.terms > div {
+    text-align: justify;
+}
+.reclamaciones {
+    margin-top: 40px;
+}
+.reclamaciones section:not(:first-child) {
+    border-top: 1px solid #efefef;
+    padding-top: 30px;
+    margin-top: 30px;
+}
+.reclamaciones section .section-title {
+    margin-bottom: 30px;
+    margin-top: 0;
+    font-size: 1.4em;
+    color: var(--secondary-color);
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.form-row.full {
+    width: 100%;
+}
+.form-row__label {
+    display: inline-block;
+    padding: 0 6px;
+    color: #afafaf;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 13px;
+    background-color: #fff;
+    transform: translateY(-50%);
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+    transition: all 0.25s linear;
+}
+.form-row
+    :is(
+        input:not(
+            [type="checkbox"],
+            [type="radio"],
+            [type="button"],
+            [type="submit"]
+        ),
+        select
+    ) {
+    background-color: #fff;
+    border: 1px solid #afafaf;
+    border-radius: 8px;
+    height: 46px;
+    outline: none;
+    padding: 4px 12px;
+    transition: all 0.25s linear;
+}
+.form-row select {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>');
+    background-size: 14px;
+    background-position: calc(100% - 12px) center;
+    background-repeat: no-repeat;
+}
+.form-row textarea {
+    background-color: #fff;
+    border: 1px solid #afafaf;
+    border-radius: 8px;
+    outline: none;
+    padding: 12px 12px 4px;
+    transition: all 0.25s linear;
+}
+select.form-row__input {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: none;
+}
+.form-row:focus-within .form-row__label {
+    color: var(--secondary-color);
+}
+.form-row
+    :is(
+        input:not(
+            [type="checkbox"],
+            [type="radio"],
+            [type="button"],
+            [type="submit"]
+        ),
+        select
+    ):focus {
+    border-color: var(--main-color);
+}
+.form-checklist {
+    width: 100% !important;
+    padding-left: 14px;
+    padding-right: 14px;
+    color: #909090;
+    gap: 6px;
+    font-size: 12px;
+    line-height: 1.3em;
+}
+.form-checklist input {
+    opacity: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+.form-checklist label {
+    position: relative;
+    text-align: left;
+    padding-left: calc(1.1em + 10px);
+    cursor: pointer;
+}
+.form-checklist label a {
+    color: #909090;
+    text-decoration: underline;
+}
+.form-checklist label.error,
+.form-checklist label.error a {
+    color: red;
+}
+.form-checklist input + label::before {
+    content: "" !important;
+    position: absolute;
+    left: 0;
+    display: block;
+    height: 1.1em;
+    width: 1.1em;
+    border: 1px solid #909090;
+    border-radius: 3px;
+    transition: all 0.25s linear;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.form-checklist input:checked + label::before {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+.form-checklist label.error::before {
+    border-color: red;
+}
+.form-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.form-footer :is(input[type="submit"], .btn-submit) {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 60px;
+    display: inline-flex;
+    min-width: 60%;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 46px;
+    outline: none;
+    padding: 4px 26px;
+    transition: all 0.25s linear;
+    cursor: pointer;
+}
+.form-footer :is(input[type="submit"], .btn-submit):hover {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
