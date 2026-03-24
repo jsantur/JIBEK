@@ -519,11 +519,11 @@
     .hero-contenido h1,
     .hero-contenido > div,
     #pasos .section-title {
-        text-align: center;
+        text-align: left;
     }
     .hero-contenido figure,
     #pasos .btn {
-        align-self: center;
+        align-self: flex-start;
     }
     #pasos ul li::before {
         position: relative;

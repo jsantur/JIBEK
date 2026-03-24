@@ -1176,17 +1176,6 @@
             <div class="hero-body container">
                 <div class="hero-contenido">
                     <div class="hero-layout-horizontal">
-                        <figure class="hero-logo-left">
-                            <img
-                                width="200"
-                                height="147"
-                                src="../../assets/sliders/LOGO-PRESTAMO-ALTQ-1-1.webp"
-                                class="attachment-full size-full"
-                                alt="Préstamos rápidos y seguros 100% online hasta S/1000"
-                                title="logo-chapa-cash-prestamos-rapidos"
-                                decoding="async"
-                            />
-                        </figure>
                         <div class="hero-text-content">
                             <h1>Préstamos Rápidos y Seguros 100% Online</h1>
                             <div>
@@ -1416,31 +1405,45 @@
                 // Calcular monto del préstamo
                 calculateLoanAmount: function(oroValue) {
                     // Obtener valores de los campos
-                    const tipoCuota = document.getElementById('tipo-cuota')?.value || '';
-                    const tasaInteres = parseFloat(document.getElementById('tasa-interes')?.value) || this.state.tasaInteres;
-                    
-                    // Lógica de cálculo basada en el valor del oro
-                    let baseAmount = oroValue;
-                    
-                    // Si no hay valor de oro, usar valor por defecto
-                    if (baseAmount <= 0) {
-                        baseAmount = this.state.lastLoanAmount;
+                    const metal = document.getElementById('calc-metal')?.value || 'gold';
+                    const karat = document.getElementById('calc-karat')?.value || '21';
+                    const weight = parseFloat(document.getElementById('calc-weight')?.value) || 0;
+                    const unit = document.getElementById('calc-unit')?.value || 'gram';
+                    const currency = document.getElementById('calc-currency')?.value || 'PEN';
+
+                    // Si no hay peso, mostrar 0
+                    if (weight <= 0) {
+                        return 0;
                     }
-                    
-                    // Aplicar reglas de negocio
-                    // Redondear al múltiplo de 100 más cercano
-                    let finalAmount = Math.round(baseAmount / 100) * 100;
-                    
-                    // Asegurar que esté dentro del rango permitido (100-1000)
-                    finalAmount = Math.max(100, Math.min(1000, finalAmount));
-                    
-                    // Aplicar ajuste según tipo de cuota si es necesario
-                    if (tipoCuota === 'Mensual') {
-                        // Lógica específica para pago mensual
-                        finalAmount = finalAmount; // Sin cambios por ahora
+
+                    // Precio base en USD por gramo (metal puro)
+                    const baseUSDPerGram = metal === 'gold' ? 65 : 0.85;
+
+                    // Factor según kilate/ley
+                    const goldKaratFactors = { '8': 0.333, '10': 0.417, '14': 0.583, '18': 0.75, '21': 0.875, '24': 1.0 };
+                    const silverPurityFactors = { '925': 0.925, '950': 0.95, '999': 1.0 };
+                    const karatFactor = metal === 'gold'
+                        ? (goldKaratFactors[karat] || 0.875)
+                        : (silverPurityFactors[karat] || 0.925);
+
+                    // Convertir unidades a gramos
+                    let weightInGrams = weight;
+                    if (unit === 'oz') weightInGrams = weight * 31.1035;
+                    else if (unit === 'kg') weightInGrams = weight * 1000;
+
+                    // Valor del metal en USD
+                    const metalValueUSD = weightInGrams * baseUSDPerGram * karatFactor;
+
+                    // Monto del préstamo = 70% del valor del metal
+                    let loanAmount = metalValueUSD * 0.70;
+
+                    // Convertir a moneda seleccionada
+                    if (currency === 'PEN') {
+                        loanAmount = loanAmount * 3.75;
                     }
-                    
-                    return finalAmount;
+                    // Si es USD, se queda igual
+
+                    return loanAmount;
                 },
 
                 // Actualizar interfaz unificada
@@ -1482,10 +1485,12 @@
                     const montoElement = document.getElementById('monto-prestamo');
                     
                     if (montoElement) {
+                        const currency = document.getElementById('calc-currency')?.value || 'PEN';
+                        const symbol = currency === 'USD' ? '$ ' : 'S/ ';
                         // Animación suave
                         montoElement.style.transition = 'all 0.3s ease';
                         montoElement.style.transform = 'scale(1.05)';
-                        montoElement.textContent = `S/ ${loanAmount.toFixed(2)}`;
+                        montoElement.textContent = symbol + loanAmount.toFixed(2);
                         
                         setTimeout(() => {
                             montoElement.style.transform = 'scale(1)';
@@ -1548,6 +1553,43 @@
                     return 0;
                 }
             };
+
+            // Función para enviar datos a WhatsApp
+            function sendToWhatsApp() {
+                // Obtener valores de la calculadora
+                const metal = document.getElementById('calc-metal')?.value || 'oro';
+                const karat = document.getElementById('calc-karat')?.value || '21';
+                const weight = document.getElementById('calc-weight')?.value || '0';
+                const unit = document.getElementById('calc-unit')?.value || 'gram';
+                const currency = document.getElementById('calc-currency')?.value || 'PEN';
+                const tipoCuota = document.getElementById('tipo-cuota')?.value || 'Mensual';
+                const tasaInteres = document.getElementById('tasa-interes')?.value || '7.9';
+                const montoPrestamo = document.getElementById('monto-prestamo')?.textContent || 'S/ 0.00';
+                const fechaPago = document.getElementById('fecha-pago')?.textContent || '';
+                
+                // Crear mensaje personalizado
+                const mensaje = encodeURIComponent(
+                    `🔥 *SOLICITUD DE PRÉSTAMO - CHAPA CASH* 🔥\n\n` +
+                    `📋 *DATOS DE LA CALCULADORA:*\n` +
+                    `• Metal: ${metal === 'oro' ? 'Oro' : 'Plata'}\n` +
+                    `• Kilataje: ${karat}K\n` +
+                    `• Peso: ${weight} ${unit === 'gram' ? 'gramos' : unit === 'oz' ? 'onzas' : 'kilogramos'}\n` +
+                    `• Moneda: ${currency === 'PEN' ? 'Soles (PEN)' : 'Dólares (USD)'}\n` +
+                    `• Tipo de cuota: ${tipoCuota}\n` +
+                    `• Tasa de interés: ${tasaInteres}%\n\n` +
+                    `💰 *MONTO APROXIMADO DEL PRÉSTAMO:*\n` +
+                    `${montoPrestamo}\n\n` +
+                    `📅 *PRIMERA FECHA DE PAGO:*\n` +
+                    `${fechaPago}\n\n` +
+                    `📝 *Estoy interesado/a en obtener este préstamo. Por favor, contáctenme para continuar con el proceso.*\n\n` +
+                    `---\n` +
+                    `*Enviado desde la calculadora web de Chapa Cash*`
+                );
+                
+                // Abrir WhatsApp con el mensaje
+                const whatsappUrl = `https://api.whatsapp.com/message/7ILMT3O7CFF4P1?autoload=1&app_absent=0&text=${mensaje}`;
+                window.open(whatsappUrl, '_blank');
+            }
 
             // Inicializar cuando el DOM esté listo
             document.addEventListener('DOMContentLoaded', () => {
@@ -1713,6 +1755,11 @@
         </script>
 
         <section id="calculadora-oro" class="section">
+            <div class="container">
+                <h2 class="section-title">
+                    Convierte oro en dinero hoy y descubre tu cuota al instante
+                </h2>
+            </div>
             <div
                 class="container calculators-master"
                 style="
@@ -1754,169 +1801,106 @@
                             </div>
                         </div>
 
-                        <!-- Unified Calculator-Loan Card -->
+                        <!-- Simplified Calculator Card -->
                         <div class="unified-card">
-                            <div class="card-header">
-                                <h2 class="section-title">
-                                    Calculadora de Oro y Préstamo Integrado
-                                </h2>
-                                <p class="card-subtitle">
-                                    Calcula el valor de tu oro y obtén tu préstamo al instante · Tasas en tiempo real
-                                </p>
-                            </div>
-
                             <div class="card-content">
-                                <!-- Gold Calculator Section -->
-                                <div class="calculator-section">
-                                    <h3 class="section-subtitle">1. Calcula el valor de tu oro</h3>
-                                    <div class="oro-grid">
-                                        <!-- Metal -->
-                                        <div class="oro-field">
-                                            <label for="calc-metal">Metal</label>
-                                            <select id="calc-metal">
-                                                <option value="gold">Oro</option>
-                                                <option value="silver">Plata</option>
-                                            </select>
-                                        </div>
-                                        <!-- Quilate -->
-                                        <div class="oro-field" id="wrap-karat">
-                                            <label for="calc-karat">Quilate</label>
-                                            <select id="calc-karat">
-                                                <option value="21" selected>
-                                                    21k
-                                                </option>
-                                                <option value="18">18k</option>
-                                            </select>
-                                        </div>
-                                        <!-- Peso -->
-                                        <div class="oro-field">
-                                            <label for="calc-weight">Peso</label>
-                                            <input
-                                                type="number"
-                                                id="calc-weight"
-                                                value="1"
-                                                min="0.001"
-                                                step="any"
-                                            />
-                                        </div>
-                                        <!-- Unidad -->
-                                        <div class="oro-field">
-                                            <label for="calc-unit">Unidad</label>
-                                            <select id="calc-unit">
-                                                <option value="gram" selected>
-                                                    Gramo
-                                                </option>
-                                            </select>
-                                        </div>
-                                        <!-- Moneda -->
-                                        <div class="oro-field oro-field-full">
-                                            <label for="calc-currency">Moneda</label>
-                                            <select id="calc-currency">
-                                                <option value="PEN" selected>
-                                                    🇵🇪 PEN — Sol peruano
-                                                </option>
-                                                <option value="USD">
-                                                    🇺🇸 USD — Dólar americano
-                                                </option>
-                                                <option value="EUR">
-                                                    🇪🇺 EUR — Euro
-                                                </option>
-                                                <option value="GBP">
-                                                    🇬🇧 GBP — Libra esterlina
-                                                </option>
-                                                <option value="COP">
-                                                    🇨🇴 COP — Peso colombiano
-                                                </option>
-                                                <option value="MXN">
-                                                    🇲🇽 MXN — Peso mexicano
-                                                </option>
-                                                <option value="BRL">
-                                                    🇧🇷 BRL — Real brasileño
-                                                </option>
-                                                <option value="CLP">
-                                                    🇨🇱 CLP — Peso chileno
-                                                </option>
-                                                <option value="ARS">
-                                                    🇦🇷 ARS — Peso argentino
-                                                </option>
-                                            </select>
-                                        </div>
+                                <!-- Calculator Grid -->
+                                <div class="calculator-grid">
+                                    <!-- Metal -->
+                                    <div class="calc-field">
+                                        <label for="calc-metal">Oro</label>
+                                        <select id="calc-metal">
+                                            <option value="gold" selected>Oro</option>
+                                            <option value="silver">Plata</option>
+                                        </select>
                                     </div>
-
-                                    <!-- Gold Result Display -->
-                                    <div class="gold-result" id="oro-result">
-                                        <div class="result-label">Valor estimado de tu oro:</div>
-                                        <div class="result-value" id="oro-result-value">S/ 144.00</div>
-                                        <div class="result-sub" id="oro-result-sub">Calculando...</div>
+                                    <!-- Quilate -->
+                                    <div class="calc-field" id="wrap-karat">
+                                        <label for="calc-karat">21k</label>
+                                        <select id="calc-karat">
+                                            <option value="21" selected>21k</option>
+                                            <option value="18">18k</option>
+                                        </select>
+                                    </div>
+                                    <!-- Peso -->
+                                    <div class="calc-field">
+                                        <label for="calc-weight">PESO</label>
+                                        <input
+                                            type="number"
+                                            id="calc-weight"
+                                            value="1"
+                                            min="0.001"
+                                            step="any"
+                                        />
+                                    </div>
+                                    <!-- Unidad -->
+                                    <div class="calc-field">
+                                        <label for="calc-unit">UNIDAD</label>
+                                        <select id="calc-unit">
+                                            <option value="gram" selected>Gramo</option>
+                                        </select>
+                                    </div>
+                                    <!-- Moneda -->
+                                    <div class="calc-field full-width">
+                                        <label for="calc-currency">MONEDA</label>
+                                        <select id="calc-currency">
+                                            <option value="PEN" selected>PE PEN - Sol peruano</option>
+                                            <option value="USD">🇺🇸 USD — Dólar americano</option>
+                                        </select>
+                                    </div>
+                                    <!-- Tipo de Cuota -->
+                                    <div class="calc-field">
+                                        <label for="tipo-cuota">TIPO DE CUOTA</label>
+                                        <select name="tipo-cuota" id="tipo-cuota">
+                                            <option value="" disabled>Selecciona tipo de cuota</option>
+                                            <option value="Mensual" selected>Pago Mensual</option>
+                                        </select>
+                                    </div>
+                                    <!-- Tasa de Interés -->
+                                    <div class="calc-field">
+                                        <label for="tasa-interes">TASA DE INTERÉS</label>
+                                        <select id="tasa-interes">
+                                            <option value="7.9" selected>7.9%*</option>
+                                        </select>
                                     </div>
                                 </div>
 
-                                <!-- Loan Configuration Section -->
-                                <div class="loan-section">
-                                    <h3 class="section-subtitle">2. Configura tu préstamo</h3>
-                                    <div class="loan-config-grid">
-                                        <div class="loan-field">
-                                            <label for="tipo-cuota">Tipo de Cuota</label>
-                                            <select name="tipo-cuota" id="tipo-cuota">
-                                                <option value="" disabled selected>
-                                                    Selecciona tipo de cuota
-                                                </option>
-                                                <option value="Mensual">
-                                                    Pago Mensual
-                                                </option>
-                                            </select>
-                                        </div>
-                                        <div class="loan-field">
-                                            <label for="tasa-interes">Tasa de Interés</label>
-                                            <select id="tasa-interes">
-                                                <option value="7.9" selected><strong>7.9%*</strong></option>
-                                            </select>
-                                        </div>
+                                <!-- Result Display -->
+                                <div class="result-display">
+                                    <div class="result-box">
+                                        <div class="result-label">Monto aproximado del préstamo</div>
+                                        <div class="result-amount" id="monto-prestamo">S/ 144.00</div>
+                                    </div>
+                                    <div class="payment-date">
+                                        <span>Primera fecha de pago:</span>
+                                        <span id="fecha-pago">08/04/2026</span>
                                     </div>
                                 </div>
 
-                                <!-- Unified Results Section -->
-                                <div class="unified-results">
-                                    <div class="results-grid">
-                                        <div class="result-card primary">
-                                            <div class="result-label">Monto de préstamo</div>
-                                            <div class="result-amount" id="monto-prestamo">S/ 144.00</div>
-                                        </div>
-                                        <div class="result-card secondary">
-                                            <div class="result-label">Primera fecha de pago:</div>
-                                            <div class="result-date" id="fecha-pago">31/03/2026</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Action Section -->
-                                <div class="action-section">
-                                    <a
-                                        href="https://chapacash.com.pe/prestamosrapidosonline/evaluacion/?utm_source=google&amp;utm_medium=organic&amp;utm_campaign=home_header_btn_pat"
-                                        data-url="https://chapacash.com.pe/prestamosrapidosonline/evaluacion/?utm_source=google&amp;utm_medium=organic&amp;utm_campaign=home_header_btn_pat"
+                                <!-- Action Button -->
+                                <div class="action-button">
+                                    <button
                                         class="cta-button"
                                         id="solicitar-prestamo-btn"
+                                        onclick="sendToWhatsApp()"
                                     >
                                         Solicita tu Préstamo
-                                    </a>
+                                    </button>
                                 </div>
 
                                 <!-- Disclaimer -->
-                                <div class="disclaimer-section">
-                                    <p id="oro-disclaimer">
-                                        Los montos mostrados corresponden a una tasación
-                                        referencial de la empresa. El valor final del
-                                        oro está sujeto a verificación y evaluación
-                                        presencial en oficina.
+                                <div class="disclaimer-box">
+                                    <p>
+                                        Los montos mostrados corresponden a una tasación referencial de la empresa. El valor final del oro está sujeto a verificación y evaluación presencial en oficina. Estamos registrados en la SBS. <a href="https://bit.ly/44vZFgB" target="_blank">Revísalo aquí</a>.
                                     </p>
-                                    <p class="sbs-disclaimer">
-                                        Estamos registrados en la SBS.
-                                        <a href="https://bit.ly/44vZFgB" target="_blank">Revísalo aquí</a>.
-                                    </p>
-                                    <p id="oro-updated"></p>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    
+                    <!-- Image Column -->
+                    <div class="calculator-image">
+                        <img src="../../assets/sliders/DINERO.webp" alt="Calculadora de Préstamos" class="calculator-img">
                     </div>
                 </div>
             </div>
@@ -1967,7 +1951,7 @@
                 #calculadora-oro .calculator-panel__intro .section-title {
                     text-align: center;
                     margin-bottom: 8px;
-                    color: #0a2d57;
+                    color: #244595;
                     letter-spacing: -0.02em;
                 }
 
@@ -2006,7 +1990,7 @@
                 .oro-chip-value {
                     font-size: 1.15rem;
                     font-weight: 700;
-                    color: #1a3a6e;
+                    color: #244595;
                 }
 
                 #oro-calc-card,
@@ -2081,7 +2065,7 @@
                 }
 
                 #calculadora-oro .loan-simulator-card .results-date b {
-                    color: #0a2d57;
+                    color: #244595;
                 }
 
                 #calculadora-oro .loan-simulator-card .form-footer {
@@ -2090,8 +2074,8 @@
                 }
 
                 #calculadora-oro .loan-simulator-card .form-submit {
-                    background: #07294e;
-                    box-shadow: 0 12px 24px rgba(7, 41, 78, 0.18);
+                    background: #244595;
+                    box-shadow: 0 12px 24px rgba(36, 69, 149, 0.18);
                     padding: 16px 22px;
                     border-radius: 14px;
                     font-size: 1rem;
@@ -2137,7 +2121,7 @@
                 .oro-field select:focus,
                 .oro-field input:focus {
                     outline: none;
-                    border-color: #4caf50;
+                    border-color: #87CEEB;
                     background: #fff;
                 }
 
@@ -2229,308 +2213,220 @@
                     }
                 }
 
-                /* Unified Calculator-Loan Styles */
-                .unified-calculator-loan {
-                    width: 100%;
-                    max-width: 100%;
-                }
-
-                .price-bar {
-                    display: flex;
-                    gap: 16px;
-                    justify-content: center;
-                    flex-wrap: wrap;
-                    margin-bottom: 32px;
-                }
-
+                /* New Calculator Styles */
                 .unified-card {
                     background: #ffffff;
-                    border-radius: 20px;
-                    box-shadow: 0 8px 32px rgba(7, 41, 78, 0.12);
+                    border-radius: 12px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
                     overflow: hidden;
-                    border: 1px solid #e5ecf3;
-                }
-
-                .card-header {
-                    background: linear-gradient(135deg, #0a2d57 0%, #1e4976 100%);
-                    color: white;
-                    padding: 32px;
-                    text-align: center;
-                }
-
-                .card-header .section-title {
-                    margin: 0 0 8px 0;
-                    font-size: clamp(1.5rem, 4vw, 1.8rem);
-                    font-weight: 700;
-                }
-
-                .card-subtitle {
-                    margin: 0;
-                    font-size: 0.95rem;
-                    opacity: 0.9;
-                    font-weight: 400;
+                    border: 1px solid #e0e0e0;
+                    max-width: 500px;
+                    margin: 0 auto;
                 }
 
                 .card-content {
-                    padding: 32px;
+                    padding: 24px;
                 }
 
-                .section-subtitle {
-                    font-size: 1.1rem;
-                    font-weight: 600;
-                    color: #0a2d57;
-                    margin: 0 0 20px 0;
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                }
-
-                .section-subtitle::before {
-                    content: '';
-                    width: 4px;
-                    height: 20px;
-                    background: #4caf50;
-                    border-radius: 2px;
-                }
-
-                .calculator-section {
-                    margin-bottom: 32px;
-                    padding-bottom: 32px;
-                    border-bottom: 1px solid #e5ecf3;
-                }
-
-                .loan-section {
-                    margin-bottom: 32px;
-                }
-
-                .loan-config-grid {
+                .calculator-grid {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                     gap: 16px;
                     margin-bottom: 24px;
                 }
 
-                .loan-field {
+                .calc-field {
                     display: flex;
                     flex-direction: column;
                 }
 
-                .loan-field label {
+                .calc-field.full-width {
+                    grid-column: 1 / -1;
+                }
+
+                .calc-field label {
                     display: block;
-                    font-size: 0.82rem;
+                    font-size: 0.75rem;
                     font-weight: 600;
-                    color: #07294e;
-                    margin-bottom: 6px;
-                    text-transform: uppercase;
-                    letter-spacing: 0.04em;
-                }
-
-                .loan-field select {
-                    width: 100%;
-                    padding: 12px 14px;
-                    border: 1.5px solid #d0d0d0;
-                    border-radius: 10px;
-                    background: #fafafa;
-                    font-size: 0.95rem;
-                    font-weight: 500;
-                    color: #2c3e50;
-                    transition: all 0.3s ease;
-                    min-width: 0;
-                }
-
-                .loan-field select:focus {
-                    outline: none;
-                    border-color: #4caf50;
-                    background: #fff;
-                    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
-                }
-
-                .gold-result {
-                    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-                    border-radius: 12px;
-                    padding: 20px;
-                    margin-top: 20px;
-                    border: 1px solid #dee2e6;
-                    text-align: center;
-                }
-
-                .gold-result .result-label {
-                    font-size: 0.9rem;
-                    color: #6c757d;
-                    margin-bottom: 8px;
-                    font-weight: 500;
-                }
-
-                .gold-result .result-value {
-                    font-size: 1.8rem;
-                    font-weight: 700;
-                    color: #0a2d57;
+                    color: #666666;
                     margin-bottom: 4px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
                 }
 
-                .gold-result .result-sub {
-                    font-size: 0.85rem;
-                    color: #6c757d;
-                }
-
-                .unified-results {
-                    margin-bottom: 32px;
-                }
-
-                .results-grid {
-                    display: grid;
-                    grid-template-columns: 2fr 1fr;
-                    gap: 20px;
-                }
-
-                .result-card {
-                    background: #f8f9fa;
-                    border-radius: 12px;
-                    padding: 24px;
-                    text-align: center;
-                    border: 1px solid #e9ecef;
-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
-                }
-
-                .result-card:hover {
-                    transform: translateY(-2px);
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                }
-
-                .result-card.primary {
-                    background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
-                    color: white;
-                    border: none;
-                }
-
-                .result-card.secondary {
-                    background: #ffffff;
-                    border: 2px solid #e9ecef;
-                }
-
-                .result-card .result-label {
+                .calc-field select,
+                .calc-field input {
+                    width: 100%;
+                    padding: 8px 12px;
+                    border: 1px solid #d0d0d0;
+                    border-radius: 6px;
                     font-size: 0.9rem;
-                    margin-bottom: 8px;
+                    color: #333333;
+                    background: #ffffff;
+                    box-sizing: border-box;
+                    transition: border-color 0.2s;
+                }
+
+                .calc-field select:focus,
+                .calc-field input:focus {
+                    outline: none;
+                    border-color: #87CEEB;
+                }
+
+                .result-display {
+                    margin-bottom: 24px;
+                }
+
+                .result-box {
+                    background: #87CEEB;
+                    color: white;
+                    border-radius: 8px;
+                    padding: 20px;
+                    text-align: center;
+                    margin-bottom: 16px;
+                }
+
+                .result-box .result-label {
+                    font-size: 0.9rem;
                     font-weight: 500;
+                    margin-bottom: 8px;
                     opacity: 0.9;
                 }
 
-                .result-card.primary .result-label {
-                    color: rgba(255, 255, 255, 0.9);
-                }
-
-                .result-card.secondary .result-label {
-                    color: #6c757d;
-                }
-
                 .result-amount {
-                    font-size: clamp(2rem, 5vw, 2.5rem);
+                    font-size: 2rem;
                     font-weight: 700;
                     line-height: 1;
                 }
 
-                .result-date {
-                    font-size: 1rem;
-                    font-weight: 600;
-                    color: #0a2d57;
+                .payment-date {
+                    text-align: center;
+                    font-size: 0.9rem;
+                    color: #666666;
                 }
 
-                .action-section {
+                .payment-date span:last-child {
+                    font-weight: 600;
+                    color: #333333;
+                    margin-left: 4px;
+                }
+
+                .action-button {
                     text-align: center;
                     margin-bottom: 24px;
                 }
 
                 .cta-button {
                     display: inline-block;
-                    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+                    background: #244595;
                     color: white;
                     text-decoration: none;
-                    padding: 16px 40px;
-                    border-radius: 50px;
+                    padding: 14px 32px;
+                    border-radius: 6px;
                     font-weight: 600;
-                    font-size: 1.1rem;
-                    transition: all 0.3s ease;
-                    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+                    font-size: 1rem;
+                    transition: background-color 0.3s;
                     border: none;
                     cursor: pointer;
                 }
 
                 .cta-button:hover {
-                    transform: translateY(-2px);
-                    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
-                    background: linear-gradient(135deg, #ff5722 0%, #f7931e 100%);
+                    background: #1a3a6e;
                 }
 
-                .disclaimer-section {
-                    background: #f8f9fa;
-                    border-radius: 8px;
+                .disclaimer-box {
+                    background: #fff9c4;
+                    border: 1px solid #fff176;
+                    border-radius: 6px;
                     padding: 16px;
-                    border-left: 4px solid #ffc107;
                     text-align: center;
                 }
 
-                .disclaimer-section p {
+                .disclaimer-box p {
                     margin: 0;
-                    font-size: 0.85rem;
-                    color: #6c757d;
+                    font-size: 0.8rem;
+                    color: #666666;
                     line-height: 1.4;
                 }
 
-                .disclaimer-section p:not(:last-child) {
-                    margin-bottom: 12px;
-                }
-
-                .disclaimer-section a {
-                    color: #007bff;
+                .disclaimer-box a {
+                    color: #1976d2;
                     text-decoration: none;
                 }
 
-                .disclaimer-section a:hover {
+                .disclaimer-box a:hover {
                     text-decoration: underline;
                 }
 
-                /* Responsive Design for Unified Component */
+                /* Responsive Design */
                 @media (max-width: 768px) {
-                    .card-header,
                     .card-content {
                         padding: 20px;
                     }
 
-                    .loan-config-grid {
-                        grid-template-columns: 1fr;
+                    .calculator-grid {
+                        grid-template-columns: 1fr 1fr;
+                        gap: 10px;
                     }
 
-                    .results-grid {
-                        grid-template-columns: 1fr;
-                        gap: 16px;
-                    }
-
-                    .price-bar {
-                        gap: 8px;
-                    }
-
-                    .oro-price-chip {
-                        font-size: 0.8rem;
-                        padding: 6px 10px;
+                    .unified-card {
+                        max-width: 100%;
+                        margin: 0 16px;
                     }
                 }
 
                 @media (max-width: 480px) {
-                    .card-header .section-title {
-                        font-size: 1.3rem;
+                    .card-content {
+                        padding: 16px;
                     }
 
-                    .card-subtitle {
-                        font-size: 0.85rem;
+                    .calculator-grid {
+                        grid-template-columns: 1fr 1fr;
+                        gap: 8px;
                     }
 
-                    .section-subtitle {
-                        font-size: 1rem;
+                    .result-amount {
+                        font-size: 1.5rem;
                     }
 
                     .cta-button {
-                        padding: 14px 28px;
-                        font-size: 1rem;
+                        padding: 12px 24px;
+                        font-size: 0.9rem;
+                    }
+
+                    .calculator-image {
+                        display: none;
+                    }
+                }
+
+                /* Calculator Image Styles */
+                .calculator-image {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 20px;
+                }
+
+                .calculator-img {
+                    max-width: 100%;
+                    height: auto;
+                    border-radius: 12px;
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+                    animation: float 3s ease-in-out infinite;
+                    transition: transform 0.3s ease;
+                }
+
+                .calculator-img:hover {
+                    transform: scale(1.02);
+                    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+                }
+
+                @keyframes float {
+                    0%, 100% {
+                        transform: translateY(0px);
+                    }
+                    50% {
+                        transform: translateY(-10px);
                     }
                 }
             </style>
@@ -2709,11 +2605,8 @@
                                 : prices.silver_usd;
                         if (!spotUSD || weight <= 0) {
                             document.getElementById(
-                                "oro-result-value",
+                                "monto-prestamo",
                             ).textContent = "—";
-                            document.getElementById(
-                                "oro-result-sub",
-                            ).textContent = "";
                             return;
                         }
 
@@ -2729,8 +2622,8 @@
                         });
 
                         document.getElementById(
-                            "oro-result-value",
-                        ).textContent = sym + formatted + " " + currency;
+                            "monto-prestamo",
+                        ).textContent = sym + formatted;
 
                         // Disparar integración con el préstamo
                         if (typeof UnifiedCalculatorLoan !== 'undefined') {
