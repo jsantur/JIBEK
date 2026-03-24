@@ -932,6 +932,7 @@
             type="text/css"
             media="all"
         />
+        <link rel="stylesheet" id="template-nosotros-css" href="../../css/pages/nosotros/template-nosotros.css" type="text/css" media="all" />
         <link
             rel="stylesheet"
             id="template-products-css"
@@ -1138,8 +1139,8 @@
                         >
                             <a
                                 itemprop="url"
-                                href="#details"
-                                data-details-tab="requisitos"
+                                href="#requisitos"
+                                class="scrollto"
                                 >Requisitos</a
                             >
                         </li>
@@ -1174,89 +1175,150 @@
             </div>
             <div class="hero-body container">
                 <div class="hero-contenido">
-                    <figure>
-                        <img
-                            width="307"
-                            height="225"
-                            src="../../assets/sliders/LOGO-PRESTAMO-ALTQ-1-1.webp"
-                            class="attachment-full size-full"
-                            alt="Préstamos rápidos y seguros 100% online hasta S/1000"
-                            title="logo-chapa-cash-prestamos-rapidos"
-                            decoding="async"
-                        />
-                    </figure>
-                    <h1>Préstamos Rápidos y Seguros 100% Online</h1>
-                    <div>
-                        ¡Solicita tu préstamo las 24 horas desde cualquier parte
-                        del Perú!
+                    <div class="hero-layout-horizontal">
+                        <figure class="hero-logo-left">
+                            <img
+                                width="200"
+                                height="147"
+                                src="../../assets/sliders/LOGO-PRESTAMO-ALTQ-1-1.webp"
+                                class="attachment-full size-full"
+                                alt="Préstamos rápidos y seguros 100% online hasta S/1000"
+                                title="logo-chapa-cash-prestamos-rapidos"
+                                decoding="async"
+                            />
+                        </figure>
+                        <div class="hero-text-content">
+                            <h1>Préstamos Rápidos y Seguros 100% Online</h1>
+                            <div>
+                                ¡Solicita tu préstamo de lunes a viernes, de 9:00 am a 6:00 pm, y sábados de 9:00 am a 1:00 pm!
+                            </div>
+                            <ul>
+                                <li>
+                                    <figure>
+                                        <img
+                                            src="../../assets/icons/Vector-13.svg"
+                                            class="attachment-full size-full"
+                                            alt="Ícono de préstamo rápido de hasta S/ 1,000 con Chapa Cash"
+                                            title="Préstamos hasta S/ 1,000 en minutos"
+                                            decoding="async"
+                                        />
+                                    </figure>
+                                    <span>Obtén hasta <b>S/ 1,000</b></span>
+                                </li>
+                                <li>
+                                    <figure>
+                                        <img
+                                            src="../../assets/icons/Vector-14.svg"
+                                            class="attachment-full size-full"
+                                            alt="Ícono de reloj para préstamos en 60 minutos"
+                                            title="Préstamos inmediatos en menos de 60 minutos"
+                                            decoding="async"
+                                        />
+                                    </figure>
+                                    <span
+                                        >Recibe tu dinero en <b>minutos</b></span
+                                    >
+                                </li>
+                                <li>
+                                    <figure>
+                                        <img
+                                            src="../../assets/icons/Vector-15.svg"
+                                            class="attachment-full size-full"
+                                            alt="Paga tu préstamo Chapa Cash con billetera digital o banca móvil"
+                                            title="Paga fácil con Yape, BCP o Interbank"
+                                            decoding="async"
+                                        />
+                                    </figure>
+                                    <span
+                                        >Paga a través de:
+                                        <b>YAPE, BCP e INTERBANK.</b></span
+                                    >
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul>
-                        <li>
-                            <figure>
-                                <img
-                                    src="../../assets/icons/Vector-13.svg"
-                                    class="attachment-full size-full"
-                                    alt="Ícono de préstamo rápido de hasta S/ 1,000 con Chapa Cash"
-                                    title="Préstamos hasta S/ 1,000 en minutos"
-                                    decoding="async"
-                                />
-                            </figure>
-                            <span>Obtén hasta <b>S/ 1,000</b></span>
-                        </li>
-                        <li>
-                            <figure>
-                                <img
-                                    src="../../assets/icons/Vector-14.svg"
-                                    class="attachment-full size-full"
-                                    alt="Ícono de reloj para préstamos en 60 minutos"
-                                    title="Préstamos inmediatos en menos de 60 minutos"
-                                    decoding="async"
-                                />
-                            </figure>
-                            <span
-                                >Recibe tu dinero desde <b>60 minutos</b></span
-                            >
-                        </li>
-                        <li>
-                            <figure>
-                                <img
-                                    src="../../assets/icons/Vector-15.svg"
-                                    class="attachment-full size-full"
-                                    alt="Paga tu préstamo Chapa Cash con billetera digital o banca móvil"
-                                    title="Paga fácil con Yape, BCP o Interbank"
-                                    decoding="async"
-                                />
-                            </figure>
-                            <span
-                                >Paga a través de:
-                                <b>YAPE, BCP e INTERBANK.</b></span
-                            >
-                        </li>
-                    </ul>
                 </div>
             </div>
         </section>
 
+<section id="historia" class="section">
+    <h2 class="section-title">¡Beneficios para nuestros clientes!</h2>
+    <div id="historia-linea" class="swiper swiper-initialized swiper-horizontal">
+        <div class="swiper-wrapper" id="swiper-wrapper-da27b71c242f5710b" aria-live="off" style="transition-duration: 0ms; transform: translate3d(-1910px, 0px, 0px); transition-delay: 0ms;">
+            <div class="swiper-slide historia-item" style="width: 382px;" role="group" aria-label="2 / 8">
+                <h3 class="historia-item__title">ValiClub</h3>
+                <figure class="historia-item__image"><img src="../../assets/icons/hinfo03.svg" class="attachment-full size-full" alt="" title="hinfo3" decoding="async"></figure>
+                <div><p>¡Fidelidad que se premia! Disfruta del 4to interés GRATIS, tasas preferenciales y mayores líneas de crédito. Acumula puntos canjeables en MarketPlace (1 punto = S/ 5.00) pagando puntualmente tus intereses. Programa exclusivo para contratos desde S/ 1,000.00 con garantía recuperada. Accede a beneficios únicos manteniendo tu calificación Tipo A y tu excelente historial financiero.</p>
+</div>
+            </div>
+            <div class="swiper-slide historia-item" style="width: 382px;" role="group" aria-label="3 / 8">
+                <h3 class="historia-item__title">Tu Lealtad Te Premia</h3>
+                <figure class="historia-item__image"><img src="../../assets/icons/hinfo04.svg" class="attachment-full size-full" alt="" title="hinfo04" decoding="async"></figure>
+                <div><p>Participa en nuestro sorteo mensual exclusivo del 01 de enero al 31 de diciembre de 2026. Acumula opciones realizando un empeño desde S/500 en oro o S/300 en electrodomésticos, pagando tus intereses puntualmente o comprando más de S/500 en nuestro Marketplace. Los sorteos se realizarán el último día de cada mes y los ganadores serán notificados de inmediato. El premio debe reclamarse el mismo día hasta las 18:00 horas, de lo contrario se seleccionará un nuevo ganador. Al participar, aceptas la toma de fotos/video para fines promocionales. Consulta exclusiones y el tratamiento de datos según la Ley N.º 29733. LA EMPRESA se reserva el derecho de modificar la promoción.</p>
+</div>
+            </div>
+            <div class="swiper-slide historia-item" style="width: 382px;" role="group" aria-label="4 / 8">
+                <h3 class="historia-item__title">4to Interés Gratis</h3>
+                <figure class="historia-item__image"><img src="../../assets/icons/historia-factoring.svg" class="attachment-full size-full" alt="" title="historia-factoring" decoding="async"></figure>
+                <div><p>Renueva y ahorra automáticamente! Obtén la exoneración total del pago de intereses en tu cuarta renovación consecutiva de cualquier contrato de empeño vigente durante todo el 2026. Este beneficio personal e intransferible se aplica sin importar el monto o tipo de artículo, permitiéndote también usar el valor del interés para amortizar tu capital. La promoción es válida una sola vez por contrato y no es acumulable con otros descuentos ni canjeable por efectivo.</p>
+</div>
+            </div>
+            <div class="swiper-slide historia-item swiper-slide-prev" style="width: 382px;" role="group" aria-label="5 / 8">
+                <h3 class="historia-item__title">Ticket Gold</h3>
+                <figure class="historia-item__image"><img src="../../assets/icons/historia-chapacambio.svg" class="attachment-full size-full" alt="" title="historia-chapacambio" decoding="async"></figure>
+                <div><p>Obtén este beneficio exclusivo al acumular 5 recomendaciones, sumar contratos por más de S/5000 o realizar compras mayores en Marketplace. El ticket aplica para una renovación de hasta S/2000 en oro o S/1000 en electrodomésticos y es personal e intransferible. Para validarlo, debes presentar el documento físico exactamente el día del vencimiento de tu contrato. No es acumulable con otras promociones ni tasas premium vigentes.</p>
+</div>
+            </div>
+            <div class="swiper-slide historia-item swiper-slide-active" style="width: 382px;" role="group" aria-label="6 / 8">
+                <h3 class="historia-item__title">Gana por Recomendación</h3>
+                <figure class="historia-item__image"><img src="../../assets/icons/historia-sedes.svg" class="attachment-full size-full" alt="" title="historia-sedes" decoding="async"></figure>
+                <div><p>¡Gana S/30 en efectivo por cada nuevo cliente que traigas a CES VALI! Tu recomendado debe ser cliente nuevo, dejar una garantía mínima (Oro S/600 o Electro S/300) y presentar tu copia de DNI al empeñar. El bono se entrega al realizarse el primer pago de intereses y tienes 5 días para reclamarlo en agencia. Si acumulas 5 recomendaciones válidas, obtendrás un Ticket de Exoneración adicional para ti o tus invitados. Aprovecha este beneficio ilimitado vigente hasta el 31 de diciembre de 2026.</p>
+</div>
+            </div>
+            <div class="swiper-slide historia-item swiper-slide-next" style="width: 382px;" role="group" aria-label="7 / 8">
+                <h3 class="historia-item__title">Política de garantía – Marketplace</h3>
+                <figure class="historia-item__image"><img src="../../assets/icons/historia-sedes.svg" class="attachment-full size-full" alt="" title="historia-sedes" decoding="async"></figure>
+                <div><p>Todos nuestros artículos son 100% funcionales y cuentan con 3 meses de garantía por defectos de fabricación presentando tu ticket de compra. La cobertura incluye reparación, cambio o devolución según evaluación técnica en un plazo de hasta 25 días hábiles. Quedan excluidos accesorios, daños por mal uso, humedad, sellos alterados o manipulación externa. No se aceptan devoluciones por cambio de opinión pasadas las 24 horas de la compra en nuestra sede de Talara.</p>
+</div>
+            </div>
+            <div class="swiper-slide historia-item" style="width: 382px;" role="group" aria-label="8 / 8">
+                <h3 class="historia-item__title">Campaña Empeña Emprendedor</h3>
+                <figure class="historia-item__image"><img src="../../assets/icons/producto-altoque.svg" class="attachment-full size-full" alt="" title="producto-altoque" decoding="async"></figure>
+                <div><p>¡Impulsamos tu negocio con S/ 300 en efectivo y publicidad gratuita! Si tienes un emprendimiento propio, regístrate con nuestros asesores para participar en el sorteo único de este incentivo económico. El ganador recibirá el premio y protagonizará un video promocional junto a CES VALI para dar visibilidad a su marca en nuestras redes sociales. Únete como cliente activo y potencia tu crecimiento comercial con nuestra exposición y apoyo directo.</p>
+</div>
+            </div>
+        </div>
+        <div class="swiper-buttons">
+			<a href="#" class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-da27b71c242f5710b" aria-disabled="false"></a>
+			<a href="#" class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-da27b71c242f5710b" aria-disabled="false"></a>
+		</div>
+    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+</section>
+
         <script>
-            // Módulo de Integración Calculadora-Préstamo
-            const OroLoanIntegration = {
+            // Módulo de Integración Calculadora-Préstamo Unificado
+            const UnifiedCalculatorLoan = {
                 // Estado del módulo
                 state: {
                     lastOroValue: 0,
+                    lastLoanAmount: 144.00,
                     isIntegrationActive: true,
                     integrationTimeout: null,
-                    isUpdating: false
+                    isUpdating: false,
+                    tasaInteres: 7.9
                 },
 
                 // Inicializar el módulo
                 init: function() {
-                    this.bindCalculatorEvents();
+                    this.bindAllEvents();
                     this.setupMutationObserver();
-                    console.log('Oro-Loan Integration initialized with full field monitoring');
+                    this.initializeLoanCalculation();
+                    console.log('Unified Calculator-Loan Integration initialized');
                 },
 
-                // Vincular eventos a TODOS los campos de la calculadora
-                bindCalculatorEvents: function() {
+                // Vincular eventos a TODOS los campos
+                bindAllEvents: function() {
+                    // Campos de la calculadora de oro
                     const calculatorFields = [
                         'calc-metal',      // Metal
                         'calc-karat',      // Quilate
@@ -1265,63 +1327,194 @@
                         'calc-currency'    // Moneda
                     ];
 
+                    // Campos del préstamo
+                    const loanFields = [
+                        'tipo-cuota',      // Tipo de cuota
+                        'tasa-interes'     // Tasa de interés
+                    ];
+
+                    // Vincular eventos de calculadora
                     calculatorFields.forEach(fieldId => {
                         const element = document.getElementById(fieldId);
                         if (element) {
-                            // Eventos para inputs y selects
-                            element.addEventListener('input', () => this.onCalculatorFieldChange());
-                            element.addEventListener('change', () => this.onCalculatorFieldChange());
-                            
-                            console.log(`Bound events to field: ${fieldId}`);
+                            element.addEventListener('input', () => this.onAnyFieldChange());
+                            element.addEventListener('change', () => this.onAnyFieldChange());
+                            console.log(`Bound calculator events to field: ${fieldId}`);
                         }
                     });
 
-                    // También escuchar el evento de cálculo existente
-                    this.bindCalculationEvents();
+                    // Vincular eventos de préstamo
+                    loanFields.forEach(fieldId => {
+                        const element = document.getElementById(fieldId);
+                        if (element) {
+                            element.addEventListener('input', () => this.onAnyFieldChange());
+                            element.addEventListener('change', () => this.onAnyFieldChange());
+                            console.log(`Bound loan events to field: ${fieldId}`);
+                        }
+                    });
+
+                    // Interceptar función calculate existente
+                    this.interceptCalculationFunction();
                 },
 
-                // Vincular eventos del sistema de cálculo
-                bindCalculationEvents: function() {
-                    // Si existe una función calculate global, interceptarla
+                // Interceptar la función calculate existente
+                interceptCalculationFunction: function() {
                     if (typeof window.calculate === 'function') {
                         const originalCalculate = window.calculate;
                         window.calculate = (...args) => {
                             const result = originalCalculate.apply(this, args);
-                            // Pequeño delay para asegurar que el DOM se actualizó
-                            setTimeout(() => this.onCalculatorFieldChange(), 50);
+                            setTimeout(() => this.onAnyFieldChange(), 50);
                             return result;
                         };
                     }
                 },
 
-                // Manejar cambios en cualquier campo de la calculadora
-                onCalculatorFieldChange: function() {
-                    if (this.state.isUpdating) return; // Prevenir bucles infinitos
+                // Manejar cambios en cualquier campo
+                onAnyFieldChange: function() {
+                    if (this.state.isUpdating) return;
                     
                     clearTimeout(this.state.integrationTimeout);
                     
                     // Debounce para evitar actualizaciones excesivas
                     this.state.integrationTimeout = setTimeout(() => {
-                        this.updateLoanFromCalculator();
-                    }, 100);
+                        this.performUnifiedCalculation();
+                    }, 150);
                 },
 
-                // Actualizar préstamo basado en el estado actual de la calculadora
-                updateLoanFromCalculator: function() {
+                // Realizar cálculo unificado
+                performUnifiedCalculation: function() {
+                    this.state.isUpdating = true;
+
+                    try {
+                        // 1. Calcular valor del oro
+                        const oroValue = this.calculateOroValue();
+                        
+                        // 2. Calcular monto del préstamo basado en el oro y otros factores
+                        const loanAmount = this.calculateLoanAmount(oroValue);
+                        
+                        // 3. Actualizar interfaz
+                        this.updateUnifiedInterface(oroValue, loanAmount);
+                        
+                        console.log(`🔄 Unified calculation: Oro=S/${oroValue}, Préstamo=S/${loanAmount}`);
+                        
+                    } catch (error) {
+                        console.error('Error in unified calculation:', error);
+                    } finally {
+                        this.state.isUpdating = false;
+                    }
+                },
+
+                // Calcular valor del oro
+                calculateOroValue: function() {
                     const oroValueElement = document.getElementById('oro-result-value');
-                    const loanAmountInput = document.getElementById('monto');
-                    
-                    if (!oroValueElement || !loanAmountInput) return;
+                    if (!oroValueElement) return 0;
 
                     const oroValue = this.parseOroValue(oroValueElement.textContent);
+                    return oroValue || 0;
+                },
+
+                // Calcular monto del préstamo
+                calculateLoanAmount: function(oroValue) {
+                    // Obtener valores de los campos
+                    const tipoCuota = document.getElementById('tipo-cuota')?.value || '';
+                    const tasaInteres = parseFloat(document.getElementById('tasa-interes')?.value) || this.state.tasaInteres;
                     
-                    if (oroValue > 0 && oroValue !== this.state.lastOroValue) {
-                        this.state.lastOroValue = oroValue;
-                        this.updateLoanAmount(oroValue);
-                        this.triggerLoanCalculation();
-                        
-                        console.log(`🔄 Calculator change detected: S/${oroValue} -> Loan updated`);
+                    // Lógica de cálculo basada en el valor del oro
+                    let baseAmount = oroValue;
+                    
+                    // Si no hay valor de oro, usar valor por defecto
+                    if (baseAmount <= 0) {
+                        baseAmount = this.state.lastLoanAmount;
                     }
+                    
+                    // Aplicar reglas de negocio
+                    // Redondear al múltiplo de 100 más cercano
+                    let finalAmount = Math.round(baseAmount / 100) * 100;
+                    
+                    // Asegurar que esté dentro del rango permitido (100-1000)
+                    finalAmount = Math.max(100, Math.min(1000, finalAmount));
+                    
+                    // Aplicar ajuste según tipo de cuota si es necesario
+                    if (tipoCuota === 'Mensual') {
+                        // Lógica específica para pago mensual
+                        finalAmount = finalAmount; // Sin cambios por ahora
+                    }
+                    
+                    return finalAmount;
+                },
+
+                // Actualizar interfaz unificada
+                updateUnifiedInterface: function(oroValue, loanAmount) {
+                    // Actualizar resultado del oro si es necesario
+                    if (oroValue > 0) {
+                        this.updateGoldResultDisplay(oroValue);
+                    }
+                    
+                    // Actualizar monto del préstamo
+                    this.updateLoanAmountDisplay(loanAmount);
+                    
+                    // Actualizar fecha de pago
+                    this.updatePaymentDate();
+                    
+                    // Guardar estado
+                    this.state.lastOroValue = oroValue;
+                    this.state.lastLoanAmount = loanAmount;
+                },
+
+                // Actualizar display del resultado del oro
+                updateGoldResultDisplay: function(oroValue) {
+                    const goldResult = document.getElementById('oro-result');
+                    const goldValueElement = document.getElementById('oro-result-value');
+                    const goldSubElement = document.getElementById('oro-result-sub');
+                    
+                    if (goldResult && goldValueElement) {
+                        goldResult.style.display = 'block';
+                        goldValueElement.textContent = `S/ ${oroValue.toFixed(2)}`;
+                        
+                        if (goldSubElement && oroValue > 0) {
+                            goldSubElement.textContent = '';
+                        }
+                    }
+                },
+
+                // Actualizar display del monto del préstamo
+                updateLoanAmountDisplay: function(loanAmount) {
+                    const montoElement = document.getElementById('monto-prestamo');
+                    
+                    if (montoElement) {
+                        // Animación suave
+                        montoElement.style.transition = 'all 0.3s ease';
+                        montoElement.style.transform = 'scale(1.05)';
+                        montoElement.textContent = `S/ ${loanAmount.toFixed(2)}`;
+                        
+                        setTimeout(() => {
+                            montoElement.style.transform = 'scale(1)';
+                        }, 200);
+                    }
+                },
+
+                // Actualizar fecha de pago
+                updatePaymentDate: function() {
+                    const fechaElement = document.getElementById('fecha-pago');
+                    if (fechaElement) {
+                        // Calcular próxima fecha de pago (30 días desde hoy)
+                        const today = new Date();
+                        const paymentDate = new Date(today.getTime() + (30 * 24 * 60 * 60 * 1000));
+                        const formattedDate = paymentDate.toLocaleDateString('es-PE', {
+                            day: '2-digit',
+                            month: '2-digit',
+                            year: 'numeric'
+                        });
+                        fechaElement.textContent = formattedDate;
+                    }
+                },
+
+                // Inicializar cálculo del préstamo
+                initializeLoanCalculation: function() {
+                    // Realizar cálculo inicial
+                    setTimeout(() => {
+                        this.performUnifiedCalculation();
+                    }, 500);
                 },
 
                 // Configurar observer como respaldo
@@ -1332,7 +1525,7 @@
                     const observer = new MutationObserver((mutations) => {
                         mutations.forEach((mutation) => {
                             if (mutation.type === 'childList' || mutation.type === 'characterData') {
-                                this.onCalculatorFieldChange();
+                                this.onAnyFieldChange();
                             }
                         });
                     });
@@ -1344,7 +1537,7 @@
                     });
                 },
 
-                // Parsear el valor del oro (ej: "S/ 438.02 PEN" -> 438.02)
+                // Parsear el valor del oro
                 parseOroValue: function(text) {
                     if (!text || text === '—') return 0;
                     
@@ -1353,88 +1546,12 @@
                         return parseFloat(match[1].replace(',', ''));
                     }
                     return 0;
-                },
-
-                // Actualizar el monto del préstamo con animación suave
-                updateLoanAmount: function(oroValue) {
-                    const loanInput = document.getElementById('monto');
-                    const rangeLabel = document.querySelector('.ranges-labels span');
-                    
-                    if (!loanInput) return;
-
-                    this.state.isUpdating = true;
-
-                    // Redondear al múltiplo de 100 más cercano dentro del rango
-                    const roundedValue = this.roundToNearest100(oroValue);
-                    const clampedValue = Math.max(100, Math.min(1000, roundedValue));
-                    
-                    // Actualizar el input range
-                    loanInput.value = clampedValue;
-                    
-                    // Actualizar el label con transición suave
-                    if (rangeLabel) {
-                        rangeLabel.style.transition = 'color 0.3s ease';
-                        rangeLabel.style.color = '#0a2d57';
-                        rangeLabel.textContent = 'S/' + clampedValue;
-                        
-                        // Restaurar color después de un momento
-                        setTimeout(() => {
-                            rangeLabel.style.color = '';
-                        }, 500);
-                    }
-
-                    this.state.isUpdating = false;
-                    console.log(`💰 Loan amount updated: S/${clampedValue} (from S/${oroValue})`);
-                },
-
-                // Redondear al múltiplo de 100 más cercano
-                roundToNearest100: function(value) {
-                    return Math.round(value / 100) * 100;
-                },
-
-                // Disparar el cálculo del préstamo
-                triggerLoanCalculation: function() {
-                    // Disparar eventos del préstamo para recalcular
-                    const montoInput = document.getElementById('monto');
-                    const tipoCuotaSelect = document.getElementById('tipo-cuota');
-                    
-                    setTimeout(() => {
-                        if (montoInput) {
-                            montoInput.dispatchEvent(new Event('input', { bubbles: true }));
-                        }
-                        
-                        if (tipoCuotaSelect) {
-                            tipoCuotaSelect.dispatchEvent(new Event('change', { bubbles: true }));
-                        }
-
-                        // También actualizar la fecha de pago
-                        if (typeof patForm !== 'undefined' && patForm.updateFechaPago) {
-                            patForm.updateFechaPago();
-                        }
-                    }, 50);
-                },
-
-                // Vincular eventos adicionales del préstamo
-                bindLoanEvents: function() {
-                    // Escuchar cambios manuales en el préstamo
-                    const montoInput = document.getElementById('monto');
-                    if (montoInput) {
-                        montoInput.addEventListener('input', () => {
-                            // Si el usuario cambia manualmente, desactivar temporalmente
-                            this.state.isIntegrationActive = false;
-                            clearTimeout(this.integrationTimeout);
-                            this.integrationTimeout = setTimeout(() => {
-                                this.state.isIntegrationActive = true;
-                            }, 3000); // 3 segundos para permitir interacción manual
-                        });
-                    }
                 }
             };
 
             // Inicializar cuando el DOM esté listo
             document.addEventListener('DOMContentLoaded', () => {
-                OroLoanIntegration.init();
-                OroLoanIntegration.bindLoanEvents();
+                UnifiedCalculatorLoan.init();
             });
 
             const patdata = {
@@ -1605,19 +1722,11 @@
                 "
             >
                 <div class="calculators-master__grid">
-                    <div
-                        class="calculators-master__col calculators-master__col--gold"
-                    >
+                    <div class="unified-calculator-loan">
                         <!-- Live price bar -->
                         <div
                             id="oro-price-bar"
-                            style="
-                                display: flex;
-                                gap: 16px;
-                                justify-content: center;
-                                flex-wrap: wrap;
-                                margin-bottom: 32px;
-                            "
+                            class="price-bar"
                         >
                             <div class="oro-price-chip" id="chip-gold">
                                 <span class="oro-chip-label"
@@ -1645,193 +1754,167 @@
                             </div>
                         </div>
 
-                        <!-- Calculator card -->
-                        <div id="oro-calc-card">
-                            <div class="calculator-panel__intro">
+                        <!-- Unified Calculator-Loan Card -->
+                        <div class="unified-card">
+                            <div class="card-header">
                                 <h2 class="section-title">
-                                    Calculadora de Oro
+                                    Calculadora de Oro y Préstamo Integrado
                                 </h2>
-                                <p class="calculator-panel__subtitle">
-                                    Precio en tiempo real · Actualizado
-                                    automáticamente
-                                </p>
-                            </div>
-                            <div class="oro-grid">
-                                <!-- Metal -->
-                                <div class="oro-field">
-                                    <label for="calc-metal">Metal</label>
-                                    <select id="calc-metal">
-                                        <option value="gold">Oro</option>
-                                        <option value="silver">Plata</option>
-                                    </select>
-                                </div>
-                                <!-- Quilate -->
-                                <div class="oro-field" id="wrap-karat">
-                                    <label for="calc-karat">Quilate</label>
-                                    <select id="calc-karat">
-                                        <option value="21" selected>
-                                            21k
-                                        </option>
-                                        <option value="18">18k</option>
-                                    </select>
-                                </div>
-                                <!-- Peso -->
-                                <div class="oro-field">
-                                    <label for="calc-weight">Peso</label>
-                                    <input
-                                        type="number"
-                                        id="calc-weight"
-                                        value="1"
-                                        min="0.001"
-                                        step="any"
-                                    />
-                                </div>
-                                <!-- Unidad -->
-                                <div class="oro-field">
-                                    <label for="calc-unit">Unidad</label>
-                                    <select id="calc-unit">
-                                        <option value="gram" selected>
-                                            Gramo
-                                        </option>
-                                    </select>
-                                </div>
-                                <!-- Moneda -->
-                                <div class="oro-field oro-field-full">
-                                    <label for="calc-currency">Moneda</label>
-                                    <select id="calc-currency">
-                                        <option value="PEN" selected>
-                                            🇵🇪 PEN — Sol peruano
-                                        </option>
-                                        <option value="USD">
-                                            🇺🇸 USD — Dólar americano
-                                        </option>
-                                        <option value="EUR">
-                                            🇪🇺 EUR — Euro
-                                        </option>
-                                        <option value="GBP">
-                                            🇬🇧 GBP — Libra esterlina
-                                        </option>
-                                        <option value="COP">
-                                            🇨🇴 COP — Peso colombiano
-                                        </option>
-                                        <option value="MXN">
-                                            🇲🇽 MXN — Peso mexicano
-                                        </option>
-                                        <option value="BRL">
-                                            🇧🇷 BRL — Real brasileño
-                                        </option>
-                                        <option value="CLP">
-                                            🇨🇱 CLP — Peso chileno
-                                        </option>
-                                        <option value="ARS">
-                                            🇦🇷 ARS — Peso argentino
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Result Hidden for Integration -->
-                            <div id="oro-result" style="display: none;">
-                                <div id="oro-result-value">—</div>
-                                <div id="oro-result-sub"></div>
-                            </div>
-
-                            <p id="oro-disclaimer">
-                                Los montos mostrados corresponden a una tasación
-                                referencial de la empresa. El valor final del
-                                oro está sujeto a verificación y evaluación
-                                presencial en oficina.
-                            </p>
-                            <p id="oro-updated"></p>
-                        </div>
-                    </div>
-
-                    <div
-                        class="calculators-master__col calculators-master__col--loan"
-                    >
-                        <div class="loan-simulator-card">
-                            <div class="calculator-panel__intro">
-                                <h2 class="section-title">
-                                    Solicita tu Préstamo
-                                </h2>
-                                <p class="calculator-panel__subtitle">
-                                    Simula tu cuota y continúa con tu
-                                    evaluación.
+                                <p class="card-subtitle">
+                                    Calcula el valor de tu oro y obtén tu préstamo al instante · Tasas en tiempo real
                                 </p>
                             </div>
 
-                            <form
-                                action="https://chapacash.com.pe/prestamosrapidosonline/?utm_source=google&amp;utm_medium=organic&amp;utm_campaign=home_header_btn_pat"
-                                class="form hero-form active"
-                            >
-                                <div class="form-row full form-row__range">
-                                    <div class="ranges-labels">
-                                        <label for="monto">
-                                            Escoge tu monto:
-                                        </label>
-                                        <span>S/200</span>
+                            <div class="card-content">
+                                <!-- Gold Calculator Section -->
+                                <div class="calculator-section">
+                                    <h3 class="section-subtitle">1. Calcula el valor de tu oro</h3>
+                                    <div class="oro-grid">
+                                        <!-- Metal -->
+                                        <div class="oro-field">
+                                            <label for="calc-metal">Metal</label>
+                                            <select id="calc-metal">
+                                                <option value="gold">Oro</option>
+                                                <option value="silver">Plata</option>
+                                            </select>
+                                        </div>
+                                        <!-- Quilate -->
+                                        <div class="oro-field" id="wrap-karat">
+                                            <label for="calc-karat">Quilate</label>
+                                            <select id="calc-karat">
+                                                <option value="21" selected>
+                                                    21k
+                                                </option>
+                                                <option value="18">18k</option>
+                                            </select>
+                                        </div>
+                                        <!-- Peso -->
+                                        <div class="oro-field">
+                                            <label for="calc-weight">Peso</label>
+                                            <input
+                                                type="number"
+                                                id="calc-weight"
+                                                value="1"
+                                                min="0.001"
+                                                step="any"
+                                            />
+                                        </div>
+                                        <!-- Unidad -->
+                                        <div class="oro-field">
+                                            <label for="calc-unit">Unidad</label>
+                                            <select id="calc-unit">
+                                                <option value="gram" selected>
+                                                    Gramo
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <!-- Moneda -->
+                                        <div class="oro-field oro-field-full">
+                                            <label for="calc-currency">Moneda</label>
+                                            <select id="calc-currency">
+                                                <option value="PEN" selected>
+                                                    🇵🇪 PEN — Sol peruano
+                                                </option>
+                                                <option value="USD">
+                                                    🇺🇸 USD — Dólar americano
+                                                </option>
+                                                <option value="EUR">
+                                                    🇪🇺 EUR — Euro
+                                                </option>
+                                                <option value="GBP">
+                                                    🇬🇧 GBP — Libra esterlina
+                                                </option>
+                                                <option value="COP">
+                                                    🇨🇴 COP — Peso colombiano
+                                                </option>
+                                                <option value="MXN">
+                                                    🇲🇽 MXN — Peso mexicano
+                                                </option>
+                                                <option value="BRL">
+                                                    🇧🇷 BRL — Real brasileño
+                                                </option>
+                                                <option value="CLP">
+                                                    🇨🇱 CLP — Peso chileno
+                                                </option>
+                                                <option value="ARS">
+                                                    🇦🇷 ARS — Peso argentino
+                                                </option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <input
-                                        type="range"
-                                        name="monto"
-                                        id="monto"
-                                        value="200"
-                                        min="100"
-                                        step="100"
-                                        max="1000"
-                                    />
-                                    <div class="ranges-values">
-                                        <span>S/100</span>
-                                        <span>S/1000</span>
+
+                                    <!-- Gold Result Display -->
+                                    <div class="gold-result" id="oro-result">
+                                        <div class="result-label">Valor estimado de tu oro:</div>
+                                        <div class="result-value" id="oro-result-value">S/ 144.00</div>
+                                        <div class="result-sub" id="oro-result-sub">Calculando...</div>
                                     </div>
                                 </div>
-                                <div class="form-row full form-row__select">
-                                    <select name="tipo-cuota" id="tipo-cuota">
-                                        <option
-                                            value=""
-                                            disabled=""
-                                            selected=""
-                                        >
-                                            Tipo de Cuota
-                                        </option>
-                                        <option value="Mensual">
-                                            Pago Mensual
-                                        </option>
-                                    </select>
-                                </div>
-                                <div class="form-row full form-row__select">
-                                    <select>
-                                    <option value="" selected><strong>Tasa de interes 7.9%*</strong></option>
-                                </select>
-                                </div>
-                                <div class="form-row full">
-                                    <div class="results">
-                                        <span>Monto de préstamo</span>
-                                        <b>S/ 144.00</b>
-                                    </div>
-                                    <div class="results-date">
-                                        <b>Primera fecha de pago:</b>
-                                        <span id="fecha-pago">31/03/2026</span>
+
+                                <!-- Loan Configuration Section -->
+                                <div class="loan-section">
+                                    <h3 class="section-subtitle">2. Configura tu préstamo</h3>
+                                    <div class="loan-config-grid">
+                                        <div class="loan-field">
+                                            <label for="tipo-cuota">Tipo de Cuota</label>
+                                            <select name="tipo-cuota" id="tipo-cuota">
+                                                <option value="" disabled selected>
+                                                    Selecciona tipo de cuota
+                                                </option>
+                                                <option value="Mensual">
+                                                    Pago Mensual
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="loan-field">
+                                            <label for="tasa-interes">Tasa de Interés</label>
+                                            <select id="tasa-interes">
+                                                <option value="7.9" selected><strong>7.9%*</strong></option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-row full form-footer">
+
+                                <!-- Unified Results Section -->
+                                <div class="unified-results">
+                                    <div class="results-grid">
+                                        <div class="result-card primary">
+                                            <div class="result-label">Monto de préstamo</div>
+                                            <div class="result-amount" id="monto-prestamo">S/ 144.00</div>
+                                        </div>
+                                        <div class="result-card secondary">
+                                            <div class="result-label">Primera fecha de pago:</div>
+                                            <div class="result-date" id="fecha-pago">31/03/2026</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Action Section -->
+                                <div class="action-section">
                                     <a
                                         href="https://chapacash.com.pe/prestamosrapidosonline/evaluacion/?utm_source=google&amp;utm_medium=organic&amp;utm_campaign=home_header_btn_pat"
                                         data-url="https://chapacash.com.pe/prestamosrapidosonline/evaluacion/?utm_source=google&amp;utm_medium=organic&amp;utm_campaign=home_header_btn_pat"
-                                        class="form-submit"
-                                        >Solicita tu Préstamo</a
+                                        class="cta-button"
+                                        id="solicitar-prestamo-btn"
                                     >
+                                        Solicita tu Préstamo
+                                    </a>
                                 </div>
-                            </form>
-                            <!--
-			<div class="iframe-form">
-				<iframe id="formframe" src="https://chapacash.com.pe/prestamosrapidosonline/evaluacion/?utm_source=google&utm_medium=organic&utm_campaign=home_header_btn_pat" loading="lazy" frameborder="0"></iframe>
-			</div>-->
-                            <div class="hero-disclaimer">
-                                Estamos registrados en la SBS.
-                                <a href="https://bit.ly/44vZFgB"
-                                    >Revísalo aquí</a
-                                >.
+
+                                <!-- Disclaimer -->
+                                <div class="disclaimer-section">
+                                    <p id="oro-disclaimer">
+                                        Los montos mostrados corresponden a una tasación
+                                        referencial de la empresa. El valor final del
+                                        oro está sujeto a verificación y evaluación
+                                        presencial en oficina.
+                                    </p>
+                                    <p class="sbs-disclaimer">
+                                        Estamos registrados en la SBS.
+                                        <a href="https://bit.ly/44vZFgB" target="_blank">Revísalo aquí</a>.
+                                    </p>
+                                    <p id="oro-updated"></p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1867,20 +1950,7 @@
                 }
 
                 #calculadora-oro .calculators-master__grid::after {
-                    content: "";
-                    position: absolute;
-                    top: 8px;
-                    bottom: 8px;
-                    left: calc(55% + 14px);
-                    width: 1px;
-                    background: linear-gradient(
-                        180deg,
-                        rgba(10, 58, 107, 0) 0%,
-                        rgba(10, 58, 107, 0.16) 12%,
-                        rgba(10, 58, 107, 0.22) 50%,
-                        rgba(10, 58, 107, 0.16) 88%,
-                        rgba(10, 58, 107, 0) 100%
-                    );
+                    display: none;
                 }
 
                 #calculadora-oro .calculators-master__col {
@@ -2158,6 +2228,311 @@
                         padding: 24px 18px;
                     }
                 }
+
+                /* Unified Calculator-Loan Styles */
+                .unified-calculator-loan {
+                    width: 100%;
+                    max-width: 100%;
+                }
+
+                .price-bar {
+                    display: flex;
+                    gap: 16px;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    margin-bottom: 32px;
+                }
+
+                .unified-card {
+                    background: #ffffff;
+                    border-radius: 20px;
+                    box-shadow: 0 8px 32px rgba(7, 41, 78, 0.12);
+                    overflow: hidden;
+                    border: 1px solid #e5ecf3;
+                }
+
+                .card-header {
+                    background: linear-gradient(135deg, #0a2d57 0%, #1e4976 100%);
+                    color: white;
+                    padding: 32px;
+                    text-align: center;
+                }
+
+                .card-header .section-title {
+                    margin: 0 0 8px 0;
+                    font-size: clamp(1.5rem, 4vw, 1.8rem);
+                    font-weight: 700;
+                }
+
+                .card-subtitle {
+                    margin: 0;
+                    font-size: 0.95rem;
+                    opacity: 0.9;
+                    font-weight: 400;
+                }
+
+                .card-content {
+                    padding: 32px;
+                }
+
+                .section-subtitle {
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    color: #0a2d57;
+                    margin: 0 0 20px 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+
+                .section-subtitle::before {
+                    content: '';
+                    width: 4px;
+                    height: 20px;
+                    background: #4caf50;
+                    border-radius: 2px;
+                }
+
+                .calculator-section {
+                    margin-bottom: 32px;
+                    padding-bottom: 32px;
+                    border-bottom: 1px solid #e5ecf3;
+                }
+
+                .loan-section {
+                    margin-bottom: 32px;
+                }
+
+                .loan-config-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 16px;
+                    margin-bottom: 24px;
+                }
+
+                .loan-field {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .loan-field label {
+                    display: block;
+                    font-size: 0.82rem;
+                    font-weight: 600;
+                    color: #07294e;
+                    margin-bottom: 6px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.04em;
+                }
+
+                .loan-field select {
+                    width: 100%;
+                    padding: 12px 14px;
+                    border: 1.5px solid #d0d0d0;
+                    border-radius: 10px;
+                    background: #fafafa;
+                    font-size: 0.95rem;
+                    font-weight: 500;
+                    color: #2c3e50;
+                    transition: all 0.3s ease;
+                    min-width: 0;
+                }
+
+                .loan-field select:focus {
+                    outline: none;
+                    border-color: #4caf50;
+                    background: #fff;
+                    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+                }
+
+                .gold-result {
+                    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+                    border-radius: 12px;
+                    padding: 20px;
+                    margin-top: 20px;
+                    border: 1px solid #dee2e6;
+                    text-align: center;
+                }
+
+                .gold-result .result-label {
+                    font-size: 0.9rem;
+                    color: #6c757d;
+                    margin-bottom: 8px;
+                    font-weight: 500;
+                }
+
+                .gold-result .result-value {
+                    font-size: 1.8rem;
+                    font-weight: 700;
+                    color: #0a2d57;
+                    margin-bottom: 4px;
+                }
+
+                .gold-result .result-sub {
+                    font-size: 0.85rem;
+                    color: #6c757d;
+                }
+
+                .unified-results {
+                    margin-bottom: 32px;
+                }
+
+                .results-grid {
+                    display: grid;
+                    grid-template-columns: 2fr 1fr;
+                    gap: 20px;
+                }
+
+                .result-card {
+                    background: #f8f9fa;
+                    border-radius: 12px;
+                    padding: 24px;
+                    text-align: center;
+                    border: 1px solid #e9ecef;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+
+                .result-card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                }
+
+                .result-card.primary {
+                    background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+                    color: white;
+                    border: none;
+                }
+
+                .result-card.secondary {
+                    background: #ffffff;
+                    border: 2px solid #e9ecef;
+                }
+
+                .result-card .result-label {
+                    font-size: 0.9rem;
+                    margin-bottom: 8px;
+                    font-weight: 500;
+                    opacity: 0.9;
+                }
+
+                .result-card.primary .result-label {
+                    color: rgba(255, 255, 255, 0.9);
+                }
+
+                .result-card.secondary .result-label {
+                    color: #6c757d;
+                }
+
+                .result-amount {
+                    font-size: clamp(2rem, 5vw, 2.5rem);
+                    font-weight: 700;
+                    line-height: 1;
+                }
+
+                .result-date {
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: #0a2d57;
+                }
+
+                .action-section {
+                    text-align: center;
+                    margin-bottom: 24px;
+                }
+
+                .cta-button {
+                    display: inline-block;
+                    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+                    color: white;
+                    text-decoration: none;
+                    padding: 16px 40px;
+                    border-radius: 50px;
+                    font-weight: 600;
+                    font-size: 1.1rem;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+                    border: none;
+                    cursor: pointer;
+                }
+
+                .cta-button:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+                    background: linear-gradient(135deg, #ff5722 0%, #f7931e 100%);
+                }
+
+                .disclaimer-section {
+                    background: #f8f9fa;
+                    border-radius: 8px;
+                    padding: 16px;
+                    border-left: 4px solid #ffc107;
+                    text-align: center;
+                }
+
+                .disclaimer-section p {
+                    margin: 0;
+                    font-size: 0.85rem;
+                    color: #6c757d;
+                    line-height: 1.4;
+                }
+
+                .disclaimer-section p:not(:last-child) {
+                    margin-bottom: 12px;
+                }
+
+                .disclaimer-section a {
+                    color: #007bff;
+                    text-decoration: none;
+                }
+
+                .disclaimer-section a:hover {
+                    text-decoration: underline;
+                }
+
+                /* Responsive Design for Unified Component */
+                @media (max-width: 768px) {
+                    .card-header,
+                    .card-content {
+                        padding: 20px;
+                    }
+
+                    .loan-config-grid {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .results-grid {
+                        grid-template-columns: 1fr;
+                        gap: 16px;
+                    }
+
+                    .price-bar {
+                        gap: 8px;
+                    }
+
+                    .oro-price-chip {
+                        font-size: 0.8rem;
+                        padding: 6px 10px;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .card-header .section-title {
+                        font-size: 1.3rem;
+                    }
+
+                    .card-subtitle {
+                        font-size: 0.85rem;
+                    }
+
+                    .section-subtitle {
+                        font-size: 1rem;
+                    }
+
+                    .cta-button {
+                        padding: 14px 28px;
+                        font-size: 1rem;
+                    }
+                }
             </style>
 
             <script>
@@ -2358,8 +2733,8 @@
                         ).textContent = sym + formatted + " " + currency;
 
                         // Disparar integración con el préstamo
-                        if (typeof OroLoanIntegration !== 'undefined') {
-                            OroLoanIntegration.onOroValueChange();
+                        if (typeof UnifiedCalculatorLoan !== 'undefined') {
+                            UnifiedCalculatorLoan.onAnyFieldChange();
                         }
                     }
 
@@ -2398,49 +2773,15 @@
             </script>
         </section>
 
+        <div class="section-separator"></div>
+
         <div id="details" class="section">
             <div class="container">
                 <h2 class="section-title">
-                    ¡Conoce más sobre nuestro préstamo!
+                    Preguntas frecuentes
                 </h2>
-                <ul class="rtabs" rel="details">
-                    <li data-tab="requisitos" class="active">Requisitos</li>
-                    <li data-tab="preguntas-frecuentes">
-                        Preguntas Frecuentes
-                    </li>
-                </ul>
-                <div class="rtabs-content" rel="details">
-                    <div class="rtab active" data-tab="requisitos">
-                        <div class="block-tci cols-2 xs-cols s-cols">
-                            <div
-                                class="col-30 s-col-full xs-col-full block-tci__image"
-                            >
-                                <figure>
-                                    <img
-                                        src="../../assets/images/landing-requisitos.svg"
-                                        class="attachment-full size-full"
-                                        alt="Requisitos para acceder a préstamo de S/1000 en minutos"
-                                        title="¿Qué necesitas para tu préstamo rápido?"
-                                        decoding="async"
-                                    />
-                                </figure>
-                            </div>
-                            <div
-                                class="col-70 s-col-full xs-col-full block-tci__content"
-                            >
-                                <p>
-                                    DNI vigente.<br />
-                                    Ser mayor de edad.<br />
-                                    Residir en Lima Metropolitana y Callao.<br />
-                                    Tener un buen historial crediticio en el
-                                    Sistema Financiero.<br />
-                                    Correo electrónico, teléfono y cuenta
-                                    bancaria a tu nombre.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rtab" data-tab="preguntas-frecuentes">
+                <div class="block-tci cols-2 xs-cols s-cols">
+                    <div class="col-50 s-col-full xs-col-full">
                         <div class="accordion">
                             <div class="accordion-item">
                                 <h3 class="accordion-item__title">
@@ -2482,120 +2823,138 @@
                                     </p>
                                 </div>
                             </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-item__title">
+                                    ¿Qué es un préstamo prendario?
+                                </h3>
+                                <div class="accordion-item__content">
+                                    <p>
+                                        Es un préstamo que se obtiene dejando una prenda como garantía, como joyas, relojes u otros objetos de valor. La prenda queda en custodia hasta que cancelas el préstamo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-item__title">
+                                    ¿Qué objetos puedo usar como garantía?
+                                </h3>
+                                <div class="accordion-item__content">
+                                    <p>
+                                        Aceptamos joyas de oro y plata, relojes de marca, diamantes, y otros objetos de valor. Nuestros peritos evaluarán tus prendas para determinar su valor.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-item__title">
+                                    ¿Cómo se determina el valor de mi prenda?
+                                </h3>
+                                <div class="accordion-item__content">
+                                    <p>
+                                        Nuestros peritos especializados evalúan el peso, la pureza del material, la marca, el estado y el mercado actual para determinar el valor real de tu prenda.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-50 s-col-full xs-col-full">
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <h3 class="accordion-item__title">
+                                    ¿Qué tan rápido puedo obtener mi dinero?
+                                </h3>
+                                <div class="accordion-item__content">
+                                    <p>
+                                        Una vez aprobada tu solicitud y evaluada tu prenda, puedes recibir el dinero en el mismo día. El proceso suele tardar menos de 30 minutos.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-item__title">
+                                    ¿Qué pasa si no puedo pagar mi préstamo?
+                                </h3>
+                                <div class="accordion-item__content">
+                                    <p>
+                                        Si no puedes pagar tu préstamo, la prenda queda como propiedad de la entidad. Sin embargo, te recomendamos comunicarte con nosotros para buscar alternativas antes de que esto ocurra.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-item__title">
+                                    ¿Mis prendas están seguras con ustedes?
+                                </h3>
+                                <div class="accordion-item__content">
+                                    <p>
+                                        Sí, todas tus prendas son guardadas en cajas de seguridad con seguro contra robo y daños. Además, están debidamente registradas y identificadas.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-item__title">
+                                    ¿Puedo recuperar mi prenda antes de terminar de pagar?
+                                </h3>
+                                <div class="accordion-item__content">
+                                    <p>
+                                        Sí, puedes cancelar tu préstamo en cualquier momento y recuperar tu prenda de inmediato. Solo debes pagar el capital más los intereses generados hasta esa fecha.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-item__title">
+                                    ¿Qué documentos necesito para el préstamo prendario?
+                                </h3>
+                                <div class="accordion-item__content">
+                                    <p>
+                                        Necesitas tu DNI vigente, ser mayor de edad, y presentar la prenda que deseas empeñar. No requieres avales ni garantes.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-item__title">
+                                    ¿Cuáles son las tasas de interés?
+                                </h3>
+                                <div class="accordion-item__content">
+                                    <p>
+                                        Nuestras tasas son competitivas y están reguladas por la Superintendencia de Banca, Seguros y AFP. La tasa exacta depende del monto y plazo del préstamo.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <section id="beneficios" class="section">
+        <div id="requisitos" class="section">
             <div class="container">
                 <h2 class="section-title">
-                    Beneficios de tu Préstamo Al Toque
+                    Requisitos
                 </h2>
-
-                <div
-                    id="slider-beneficios"
-                    data-mswiper='{"loop":true,"spaceBetween":40,"navigation":{"nextEl":".swiper-button-next","prevEl":".swiper-button-prev"},"breakpoints":{"200":{"slidesPerView":1},"201":{"480":{"slidesPerView":2}}}}'
-                >
-                    <div class="cols-4 mwrapper">
-                        <div class="mslide">
-                            <article class="beneficio">
-                                <figure>
-                                    <img
-                                        width="250"
-                                        height="220"
-                                        src="../../assets/sliders/01.webp"
-                                        class="attachment-full size-full"
-                                        alt=""
-                                        title="01"
-                                        decoding="async"
-                                    />
-                                </figure>
-                                <h3>
-                                    ¡Obtén un cupón preferencial para cambiar
-                                    dólares!
-                                </h3>
-                            </article>
-                        </div>
-                        <div class="mslide">
-                            <article class="beneficio">
-                                <figure>
-                                    <img
-                                        width="245"
-                                        height="219"
-                                        src="../../assets/sliders/02.webp"
-                                        class="attachment-full size-full"
-                                        alt=""
-                                        title="02"
-                                        decoding="async"
-                                    />
-                                </figure>
-                                <h3>
-                                    ¡Ingresa a múltiples sorteos de Chapa Cash!
-                                </h3>
-                            </article>
-                        </div>
-                        <div class="mslide">
-                            <article class="beneficio">
-                                <figure>
-                                    <img
-                                        width="245"
-                                        height="216"
-                                        src="../../assets/sliders/03.webp"
-                                        class="attachment-full size-full"
-                                        alt=""
-                                        title="03"
-                                        decoding="async"
-                                    />
-                                </figure>
-                                <h3>
-                                    ¡Accede a créditos con mayor monto y menor
-                                    tasa!
-                                </h3>
-                            </article>
-                        </div>
-                        <div class="mslide">
-                            <article class="beneficio">
-                                <figure>
-                                    <img
-                                        width="218"
-                                        height="216"
-                                        src="../../assets/sliders/04.webp"
-                                        class="attachment-full size-full"
-                                        alt=""
-                                        title="04"
-                                        decoding="async"
-                                    />
-                                </figure>
-                                <h3>
-                                    ¡Accede a nuestro plan de fidelización con
-                                    cupones gratis!
-                                </h3>
-                            </article>
-                        </div>
+                <div class="block-tci cols-2 xs-cols s-cols">
+                    <div
+                        class="col-30 s-col-full xs-col-full block-tci__image"
+                    >
+                        <figure>
+                            <img
+                                src="../../assets/images/landing-requisitos.svg"
+                                class="attachment-full size-full"
+                                alt="Requisitos para acceder a préstamo de S/1000 en minutos"
+                                title="¿Qué necesitas para tu préstamo rápido?"
+                                decoding="async"
+                            />
+                        </figure>
                     </div>
-                    <div class="swiper-buttons">
-                        <a
-                            href="https://chapacash.com.pe/prestamosrapidosonline/?utm_source=google&amp;utm_medium=organic&amp;utm_campaign=home_header_btn_pat#"
-                            class="swiper-button-prev"
-                        ></a>
-                        <a
-                            href="https://chapacash.com.pe/prestamosrapidosonline/?utm_source=google&amp;utm_medium=organic&amp;utm_campaign=home_header_btn_pat#"
-                            class="swiper-button-next"
-                        ></a>
+                    <div
+                        class="col-70 s-col-full xs-col-full block-tci__content"
+                    >
+                        <p>
+                            DNI vigente.<br />
+                            Ser mayor de edad.
+                        </p>
                     </div>
                 </div>
-
-                <a
-                    href="https://chapacash.com.pe/prestamosrapidosonline/?utm_source=google&amp;utm_medium=organic&amp;utm_campaign=home_header_btn_pat#"
-                    target=""
-                    class="btn scrollto"
-                    >Solicitar préstamo</a
-                >
             </div>
-        </section>
+        </div>
 
+        
         <section id="trust" class="section">
             <div class="container cols-2 s-cols xs-cols">
                 <div class="trust-content">
@@ -2869,13 +3228,9 @@
                                 Central Telefónica<br>
                                 +51 903 182 890 / (073) 538846
                             </p>
-                            <p>info@vali.pe</p>
-                            <p>
-                                <a href="https://chapacash.com.pe/agencias/"
-                                    >¡Conoce nuestras agencias!</a
-                                >
-                            </p>
-                        </div>
+                            <h3 class="footer-block__title">Ubícanos</h3>
+                            <p><a href="https://www.google.com/maps/place/Av.+Mariscal+C%C3%A1ceres+61,+Talara+20000/@-4.5846159,-81.2688827,19z/data=!3m1!4b1!4m6!3m5!1s0x9036441bd8e2f93b:0x36880c4f04864b87!8m2!3d-4.5846172!4d-81.268239!16s%2Fg%2F11lq2n6llx?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D" style="color: #6BDDDE;">Ver puntos de atención</a></p>
+                                                    </div>
                     </div>
                 </div>
             </div>
@@ -3152,6 +3507,7 @@
             defer="defer"
             data-wp-strategy="defer"
         ></script>
+        <script type="text/javascript" src="../../js/pages/nosotros/template-nosotros.js" id="template-nosotros-js" defer="defer" data-wp-strategy="defer"></script>
 
         <script
             type="text/javascript"

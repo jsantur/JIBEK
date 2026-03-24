@@ -90,6 +90,7 @@
 #historia .historia-item {
     min-height: 320px;
     height: auto;
+    width: 33.333%;
     color: #fff;
     background-color: #07294e;
     display: flex;
@@ -99,6 +100,7 @@
     text-align: center;
     padding: 25px 20px;
     gap: 10px;
+    margin: 0;
 }
 
 #historia .historia-item:nth-child(even) {
@@ -160,9 +162,21 @@
         margin: 0 auto 30px;
     }
 
+    #historia .historia-item {
+        width: 50%;
+        margin: 0;
+    }
+
     .hero-content,
     .principios-content__text,
     .valor {
         text-align: justify;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #historia .historia-item {
+        width: 100%;
+        margin: 0;
     }
 }

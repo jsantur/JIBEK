@@ -1,24 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
 	let historiaSlider = new Swiper('#historia .swiper', {
 		loop: false,
-		slidesPerView: 4,
+		slidesPerView: 'auto',
 		effect: 'slide',
 		direction: 'horizontal',
+		spaceBetween: 0,
 		autoplay: {
 			delay: 5000
 		},
         breakpoints: {
 			100: {
-				slidesPerView: 1
+				slidesPerView: 1,
+				spaceBetween: 0
 			},
 			600: {
-				slidesPerView: 2
+				slidesPerView: 2,
+				spaceBetween: 0
 			},
             1100: {
-				slidesPerView: 3
+				slidesPerView: 3,
+				spaceBetween: 0
 			},
             1400: {
-                slidesPerView: 4
+                slidesPerView: 3,
+                spaceBetween: 0
             }
 		},
 		navigation: {

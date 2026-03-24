@@ -343,7 +343,7 @@
 }
 
 #footer .scrolltop {
-    background: #fff;
+    background: #01C5C6;
     width: 42px;
     height: 42px;
     display: inline-flex;
@@ -384,6 +384,7 @@
 #footer .footer-block__title {
     font-size: 1em;
     margin-bottom: 20px;
+    color: #002258;
 }
 
 #footer .footer-block a {

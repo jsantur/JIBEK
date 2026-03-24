@@ -1,11 +1,14 @@
 /* PRÉSTAMOS PAGE - CES VALI THEME */
 
 #hero {
-    --content-width: 1000px;
+    --content-width: 601px;
     position: relative;
+    height: 464px;
 }
 #hero > .container {
     --gap: 12vw;
+    max-width: 601px;
+    margin: 0 auto;
 }
 .hero-body {
     position: relative;
@@ -14,17 +17,56 @@
 .hero-contenido {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 15px;
+    padding: 40px 20px;
+    padding-left: 40px;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 464px;
+    overflow: hidden;
+}
+
+.hero-layout-horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 30px;
+    width: 100%;
+}
+
+.hero-logo-left {
+    flex-shrink: 0;
+    width: 200px;
+    text-align: left;
+}
+
+.hero-logo-left img {
+    max-width: 100%;
+    height: auto;
+}
+
+.hero-text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
 }
 .hero-contenido h1 {
-    font-size: clamp(1.875rem, 1.625rem + 0.8333vw, 2.25rem);
-    line-height: 1.2em;
+    font-size: clamp(1.8rem, 1.5rem + 0.8vw, 2.2rem);
+    line-height: 1.1em;
     color: #fff;
+    text-align: left;
+    margin: 0;
 }
 .hero-contenido > div {
-    font-size: clamp(1.125rem, 0.9583rem + 0.5556vw, 1.375rem);
+    font-size: clamp(1.1rem, 1rem + 0.4vw, 1.3rem);
     font-weight: bold;
     color: var(--secondary-color);
+    text-align: left;
 }
 
 .hero-contenido ul {
@@ -33,20 +75,23 @@
     margin: 0;
     padding: 0;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
+    align-items: flex-start;
 }
 .hero-contenido ul li {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     align-items: center;
-    font-size: clamp(1rem, 0.9583rem + 0.1389vw, 1.0625rem);
+    font-size: clamp(1rem, 0.9rem + 0.3vw, 1.2rem);
     color: #fff;
+    text-align: left;
 }
 .hero-contenido ul li figure {
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
     position: relative;
     overflow: hidden;
+    flex-shrink: 0;
 }
 .hero-contenido ul li figure img {
     position: absolute;
@@ -529,4 +574,13 @@
     .beneficio {
         padding: 0 20px;
     }
+}
+
+/* Section separator */
+.section-separator {
+    border-bottom: 1px solid #909090;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: block;
 }
