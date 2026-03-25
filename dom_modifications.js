@@ -2,28 +2,15 @@
 // This script modifies the counter values on the Chapa Cash website
 
 function modifyCounters() {
-    // Function to modify the first counter (100 millones -> Medio millón) with typing animation
+    // Function to modify the first counter (100 millones -> 500 mil with counter animation)
     function modifyFirstCounter() {
         const firstCounter = document.querySelector('.counter[data-to="100"]');
         if (firstCounter) {
-            const parentH3 = firstCounter.closest('h3');
-            if (parentH3) {
-                const targetText = 'Medio millón';
-                const duration = 2000; // 2 seconds, same as the 10 mil animation
-                let charIndex = 0;
-                const intervalTime = duration / targetText.length;
-
-                parentH3.textContent = ''; // Clear existing text
-
-                const typingInterval = setInterval(() => {
-                    parentH3.textContent += targetText[charIndex];
-                    charIndex++;
-                    if (charIndex === targetText.length) {
-                        clearInterval(typingInterval);
-                        console.log('First counter modified: 100 millones -> Medio millón (typing animation)');
-                    }
-                }, intervalTime);
-            }
+            // Change the data-to attribute to make it animate to 500 instead of 100
+            firstCounter.setAttribute('data-to', '500');
+            // Reset the text content to start from 0 for proper animation
+            firstCounter.textContent = '0';
+            console.log('First counter modified: 100 millones -> 500 mil (with animation)');
         }
     }
 
@@ -46,10 +33,9 @@ function modifyCounters() {
             const originalStartCounter = window.rnz.startCounter;
             window.rnz.startCounter = function(counter) {
                 // Check if this is one of our target counters
-                if (counter.getAttribute('data-to') === '100') {
-                    // Skip animation for the 100 counter (we'll replace with static text)
-                    modifyFirstCounter();
-                    return;
+                if (counter.getAttribute('data-to') === '500') {
+                    // Let the 500 counter animate normally (we changed it from 100 to 500)
+                    return originalStartCounter(counter);
                 } else if (counter.getAttribute('data-to') === '10') {
                     // Let the 10 counter animate normally (we already changed it from 40 to 10)
                     return originalStartCounter(counter);
@@ -67,17 +53,17 @@ function modifyCounters() {
                     mutation.addedNodes.forEach(function(node) {
                         if (node.nodeType === 1) { // Element node
                             // Check if this node or its children contain our target counters
-                            const counter100 = node.querySelector ? node.querySelector('.counter[data-to="100"]') : null;
+                            const counter500 = node.querySelector ? node.querySelector('.counter[data-to="500"]') : null;
                             const counter40 = node.querySelector ? node.querySelector('.counter[data-to="40"]') : null;
                             
-                            if (counter100) {
+                            if (counter500) {
                                 modifyFirstCounter();
                             }
                             if (counter40) {
                                 modifySecondCounter();
                                 // Trigger animation for the modified counter
                                 setTimeout(() => {
-                                    const modifiedCounter = document.querySelector('.counter[data-to="10"]');
+                                    const modifiedCounter = document.querySelector('.counter[data-to="500"]');
                                     if (modifiedCounter && modifiedCounter.textContent === '0') {
                                         triggerCounterAnimation(modifiedCounter);
                                     }
@@ -107,12 +93,24 @@ function modifyCounters() {
             if (!startTime) startTime = timestamp;
             const progress = Math.min((timestamp - startTime) / duration, 1);
             const value = Math.floor(progress * target);
-            counter.textContent = value;
+            
+            // For the 500 counter, show the number during animation and "+500 mil" at the end
+            if (target === 500) {
+                if (progress < 1) {
+                    counter.textContent = value;
+                } else {
+                    counter.textContent = '+500 mil';
+                }
+            } else {
+                counter.textContent = value;
+            }
             
             if (progress < 1) {
                 requestAnimationFrame(updateCounter);
             } else {
-                counter.textContent = target;
+                if (target !== 500) {
+                    counter.textContent = target;
+                }
             }
         }
 
@@ -125,7 +123,7 @@ function modifyCounters() {
     
     // Wait for the original rnz.setupCounters to potentially initialize, then trigger our animation
     setTimeout(() => {
-        const modifiedCounter = document.querySelector('.counter[data-to="10"]');
+        const modifiedCounter = document.querySelector('.counter[data-to="500"]');
         if (modifiedCounter && modifiedCounter.textContent === '0') {
             // If the counter is still at 0, trigger our animation
             triggerCounterAnimation(modifiedCounter);
