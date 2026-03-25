@@ -180,7 +180,7 @@ function modifyCounters() {
         h3Elements.forEach(h3 => {
             if (h3.textContent.includes('++500') || h3.textContent.includes('mil mil')) {
                 // Clean up duplicated text
-                if (h3.textContent.includes('++500 mil mil')) {
+                if (h3.textContent.includes('500 mil mil')) {
                     h3.innerHTML = '+<span class="counter" data-to="500">500</span> mil';
                 }
             }
