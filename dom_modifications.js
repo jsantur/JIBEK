@@ -24,6 +24,17 @@ function modifyCounters() {
             secondCounter.textContent = '0';
             console.log('Second counter modified: 40 mil -> 10 mil (with animation)');
         }
+        
+        // Also check for any counter that might be stuck at 0
+        const allCounters = document.querySelectorAll('.counter');
+        allCounters.forEach(counter => {
+            if (counter.textContent === '0' && counter.getAttribute('data-to') === '10') {
+                counter.textContent = '0'; // Ensure it starts from 0
+                setTimeout(() => {
+                    triggerCounterAnimation(counter);
+                }, 100);
+            }
+        });
     }
 
     // Function to intercept and modify counter animations
@@ -99,7 +110,13 @@ function modifyCounters() {
                 if (progress < 1) {
                     counter.textContent = value;
                 } else {
-                    counter.textContent = '+500 mil';
+                    // Check if the parent h3 already contains "mil" to avoid duplication
+                    const parentH3 = counter.closest('h3');
+                    if (parentH3 && !parentH3.textContent.includes('mil')) {
+                        counter.textContent = '+500 mil';
+                    } else {
+                        counter.textContent = '+500';
+                    }
                 }
             } else {
                 counter.textContent = value;
@@ -144,6 +161,31 @@ function modifyCounters() {
         modifyFirstCounter();
         modifySecondCounter();
     }, 1000);
+    
+    // Additional mobile-specific fix - ensure counters are properly initialized
+    setTimeout(() => {
+        // Fix any remaining counter issues
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const targetValue = counter.getAttribute('data-to');
+            if (targetValue === '500' && counter.textContent === '0') {
+                triggerCounterAnimation(counter);
+            } else if (targetValue === '10' && counter.textContent === '0') {
+                triggerCounterAnimation(counter);
+            }
+        });
+        
+        // Fix text duplication issue for 500 mil
+        const h3Elements = document.querySelectorAll('h3');
+        h3Elements.forEach(h3 => {
+            if (h3.textContent.includes('++500') || h3.textContent.includes('mil mil')) {
+                // Clean up duplicated text
+                if (h3.textContent.includes('++500 mil mil')) {
+                    h3.innerHTML = '+<span class="counter" data-to="500">500</span> mil';
+                }
+            }
+        });
+    }, 1500);
 }
 
 // Run the modifications when DOM is ready
