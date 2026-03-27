@@ -17,12 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
 				slidesPerView: 2,
 				spaceBetween: 0
 			},
-            1100: {
+			900: {
 				slidesPerView: 3,
 				spaceBetween: 0
 			},
+            1200: {
+				slidesPerView: 4,
+				spaceBetween: 0
+			},
             1400: {
-                slidesPerView: 3,
+                slidesPerView: 4,
                 spaceBetween: 0
             }
 		},

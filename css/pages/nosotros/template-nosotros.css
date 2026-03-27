@@ -74,7 +74,7 @@
 #historia .historia-item {
     min-height: 320px;
     height: auto;
-    width: 33.333%;
+    width: 25%;
     color: #fff;
     background-color: #07294e;
     display: flex;
@@ -147,7 +147,7 @@
     }
 
     #historia .historia-item {
-        width: 50%;
+        width: 100%;
         margin: 0;
     }
 
@@ -158,9 +158,23 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 768px) and (max-width: 899px) {
     #historia .historia-item {
-        width: 100%;
+        width: 50%;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+    #historia .historia-item {
+        width: 33.333%;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #historia .historia-item {
+        width: 25%;
         margin: 0;
     }
 }
