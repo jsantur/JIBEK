@@ -1337,33 +1337,38 @@
 <section id="beneficios-slider" class="section">
     <div class="container">
         <h2 class="section-title">¡Beneficios para nuestros clientes!</h2>
-        <div id="slider-beneficios" class="swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="../../assets/sliders/01.webp" alt="Beneficio 1">
+        <div class="beneficios-slider-wrapper">
+            <div id="slider-beneficios" class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="../../assets/sliders/01.webp" alt="Campaña Empeña Emprendedor" loading="lazy" decoding="async" width="400" height="300">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../../assets/sliders/02.webp" alt="ValiClub" loading="lazy" decoding="async" width="400" height="300">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../../assets/sliders/03.webp" alt="Tu Lealtad Te Premia TLTP" loading="lazy" decoding="async" width="400" height="300">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../../assets/sliders/04.webp" alt="4to Interés Gratis" loading="lazy" decoding="async" width="400" height="300">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../../assets/sliders/05.webp" alt="Beneficio 5" loading="lazy" decoding="async" width="400" height="300">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../../assets/sliders/06.webp" alt="Beneficio 6" loading="lazy" decoding="async" width="400" height="300">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../../assets/sliders/07.webp" alt="Beneficio 7" loading="lazy" decoding="async" width="400" height="300">
+                    </div>
                 </div>
-                <div class="swiper-slide">
-                    <img src="../../assets/sliders/02.webp" alt="Beneficio 2">
-                </div>
-                <div class="swiper-slide">
-                    <img src="../../assets/sliders/03.webp" alt="Beneficio 3">
-                </div>
-                <div class="swiper-slide">
-                    <img src="../../assets/sliders/04.webp" alt="Beneficio 4">
-                </div>
-                <div class="swiper-slide">
-                    <img src="../../assets/sliders/05.webp" alt="Beneficio 5">
-                </div>
-                <div class="swiper-slide">
-                    <img src="../../assets/sliders/06.webp" alt="Beneficio 6">
-                </div>
-                <div class="swiper-slide">
-                    <img src="../../assets/sliders/07.webp" alt="Beneficio 7">
-                </div>
+                <!-- Paginación visible en móvil -->
+                <div class="swiper-pagination beneficios-pagination"></div>
             </div>
-            <div class="swiper-buttons">
-                <a href="#" class="swiper-button-prev"></a>
-                <a href="#" class="swiper-button-next"></a>
+            <!-- Botones fuera del swiper para posicionamiento correcto -->
+            <div class="beneficios-nav">
+                <a href="#" class="beneficios-btn-prev" aria-label="Anterior">&#8249;</a>
+                <a href="#" class="beneficios-btn-next" aria-label="Siguiente">&#8250;</a>
             </div>
         </div>
     </div>
@@ -1436,90 +1441,182 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <style>
+/* =============================================
+   SECCIÓN: ¡Beneficios para nuestros clientes!
+   Responsive: Mobile / Tablet / Desktop
+   ============================================= */
+
+#beneficios-slider {
+    padding: 40px 0 20px;
+}
+
+/* Wrapper relativo para posicionar los botones nav */
+.beneficios-slider-wrapper {
+    position: relative;
+    padding: 0 50px; /* espacio para los botones laterales */
+}
+
+/* El swiper en sí */
 #beneficios-slider .swiper {
     overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-radius: 12px;
 }
 
+/* Cada slide: imagen responsiva */
+#beneficios-slider .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f5f7fa;
+}
+
+/* Imagen: usa aspect-ratio para evitar alturas fijas */
 #beneficios-slider .swiper-slide img {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 15px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;   /* muestra la imagen completa sin recortar texto */
+    border-radius: 12px;
+    display: block;
+    transition: transform 0.3s ease;
 }
 
-#beneficios-slider .swiper-buttons {
+#beneficios-slider .swiper-slide img:hover {
+    transform: scale(1.03);
+}
+
+/* ----- Botones de navegación ----- */
+.beneficios-nav {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
     width: 100%;
-    height: 100%;
+    left: 0;
+    pointer-events: none;
     z-index: 10;
 }
 
-#beneficios-slider .swiper-button-prev {
+.beneficios-btn-prev,
+.beneficios-btn-next {
+    pointer-events: all;
     position: absolute;
-    left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.95);
     color: #07294e;
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 400;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+    user-select: none;
 }
 
-#beneficios-slider .swiper-button-next {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255,255,255,0.9);
-    color: #07294e;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 18px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-}
+.beneficios-btn-prev  { left: 4px; }
+.beneficios-btn-next  { right: 4px; }
 
-#beneficios-slider .swiper-button-prev:hover,
-#beneficios-slider .swiper-button-next:hover {
+.beneficios-btn-prev:hover,
+.beneficios-btn-next:hover {
     background: #07294e;
-    color: white;
+    color: #fff;
     transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 18px rgba(7, 41, 78, 0.35);
 }
 
-@media (max-width: 768px) {
+/* ----- Paginación (puntos) ----- */
+#beneficios-slider .beneficios-pagination {
+    position: relative;
+    bottom: unset;
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+#beneficios-slider .beneficios-pagination .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #ccd5e0;
+    opacity: 1;
+    border-radius: 50%;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#beneficios-slider .beneficios-pagination .swiper-pagination-bullet-active {
+    background: #07294e;
+    transform: scale(1.3);
+}
+
+/* =============================================
+   TABLET: 481px – 1023px  →  2 slides visibles
+   ============================================= */
+@media (min-width: 481px) and (max-width: 1023px) {
+    .beneficios-slider-wrapper {
+        padding: 0 46px;
+    }
     #beneficios-slider .swiper-slide img {
-        height: 200px;
+        aspect-ratio: 4 / 3;
     }
-    
-    #beneficios-slider .swiper-button-prev {
-        left: 10px;
-        width: 35px;
-        height: 35px;
-        font-size: 14px;
+    .beneficios-btn-prev,
+    .beneficios-btn-next {
+        width: 38px;
+        height: 38px;
+        font-size: 22px;
     }
-    
-    #beneficios-slider .swiper-button-next {
-        right: 10px;
-        width: 35px;
-        height: 35px;
-        font-size: 14px;
+}
+
+/* =============================================
+   DESKTOP: ≥ 1024px  →  4 slides visibles
+   ============================================= */
+@media (min-width: 1024px) {
+    .beneficios-slider-wrapper {
+        padding: 0 54px;
+    }
+    #beneficios-slider .swiper-slide img {
+        aspect-ratio: 4 / 3;
+    }
+    /* En desktop los puntos son menos necesarios; se pueden ocultar */
+    #beneficios-slider .beneficios-pagination {
+        display: none;
+    }
+    .beneficios-btn-prev,
+    .beneficios-btn-next {
+        width: 46px;
+        height: 46px;
+        font-size: 26px;
+    }
+}
+
+/* =============================================
+   MÓVIL: ≤ 480px  →  1 slide visible, puntos ON
+   ============================================= */
+@media (max-width: 480px) {
+    .beneficios-slider-wrapper {
+        padding: 0 36px;
+    }
+    #beneficios-slider {
+        padding: 28px 0 16px;
+    }
+    #beneficios-slider .swiper-slide img {
+        aspect-ratio: 1 / 1; /* cuadrado para banners en móvil */
+    }
+    .beneficios-btn-prev,
+    .beneficios-btn-next {
+        width: 32px;
+        height: 32px;
+        font-size: 20px;
+    }
+    #beneficios-slider .beneficios-pagination {
+        margin-top: 10px;
     }
 }
 </style>
@@ -1527,28 +1624,51 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const swiperBeneficios = new Swiper('#slider-beneficios', {
+        // Móvil por defecto: 1 slide
         slidesPerView: 1,
-        spaceBetween: 20,
+        spaceBetween: 12,
         loop: true,
+        grabCursor: true,
+        centeredSlides: false,
+
+        // Autoplay suave
         autoplay: {
-            delay: 3000,
+            delay: 3500,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true,
         },
+
+        // Paginación (puntos) – visible en móvil
+        pagination: {
+            el: '#beneficios-slider .beneficios-pagination',
+            clickable: true,
+            dynamicBullets: true,
+        },
+
+        // Navegación con los botones personalizados
         navigation: {
-            nextEl: '#beneficios-slider .swiper-button-next',
-            prevEl: '#beneficios-slider .swiper-button-prev',
+            nextEl: '.beneficios-btn-next',
+            prevEl: '.beneficios-btn-prev',
         },
+
+        // Breakpoints responsivos
         breakpoints: {
-            640: {
+            // Tablet pequeña: 2 slides
+            481: {
                 slidesPerView: 2,
+                spaceBetween: 14,
             },
+            // Tablet grande: 3 slides
             768: {
                 slidesPerView: 3,
+                spaceBetween: 16,
             },
+            // Desktop: 4 slides
             1024: {
                 slidesPerView: 4,
-            }
-        }
+                spaceBetween: 20,
+            },
+        },
     });
 });
 </script>
