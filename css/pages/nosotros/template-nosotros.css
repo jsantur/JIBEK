@@ -13,22 +13,6 @@
     z-index: 1;
 }
 
-#hero::before {
-    content: "";
-    display: block;
-    width: 30vw;
-    max-width: 352px;
-    height: 508px;
-    background-image: url("../../../assets/images/fondo-nosotros.svg");
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: -1;
-}
 
 #hero > .container {
     align-items: center;

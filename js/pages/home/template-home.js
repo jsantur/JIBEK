@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		effect: 'slide',
 		direction: 'horizontal',
 		autoplay: {
-			delay: 5000
+			delay: 8000
 		},
 		navigation: {
 			nextEl: '.swiper-button-next',

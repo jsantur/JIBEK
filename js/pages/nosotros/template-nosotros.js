@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		direction: 'horizontal',
 		spaceBetween: 0,
 		autoplay: {
-			delay: 5000
+			delay: 8000
 		},
         breakpoints: {
 			100: {
