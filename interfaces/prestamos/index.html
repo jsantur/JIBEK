@@ -1080,6 +1080,115 @@
             content="../../assets/uploads/cropped-Logo-Chapa-Cash-2-270x270.png"
         />
         <script src="../../js/vendor/wp-emoji-release.min.js" defer=""></script>
+
+        <!-- ===== PREGUNTAS FRECUENTES - Override Estilo Desktop ===== -->
+        <style>
+            /* Contenedor principal de la sección FAQ */
+            #details > .container {
+                max-width: 1600px;
+            }
+
+            /* Título centrado ya está correcto por .section-title,
+               aumentamos margen inferior para mayor aire */
+            #details .section-title {
+                margin-bottom: 32px;
+                font-size: clamp(22px, 2.5vw, 32px);
+            }
+            
+            /* Igualar tamaño de Requisitos con Preguntas frecuentes */
+            #requisitos .section-title {
+                font-size: clamp(22px, 2.5vw, 32px) !important;
+                margin-bottom: 32px !important;
+            }
+
+            /* Reducir gap entre las dos columnas en desktop */
+            #details .block-tci.cols-2 {
+                --gap: 20px;
+                align-items: flex-start;
+            }
+
+            /* Forzar ancho exacto de cada columna con el gap reducido */
+            @media screen and (min-width: 769px) {
+                #details .block-tci.cols-2 > .col-50 {
+                    width: calc(50% - 10px);
+                    flex-shrink: 0;
+                }
+            }
+
+            /* Reducir gap entre items del accordion */
+            #details .accordion {
+                gap: 10px;
+            }
+
+            /* Estilo tipo Caja Arequipa: fondo azul claro, sin sombra */
+            #details .accordion-item {
+                background-color: #dce9f8;
+                border-radius: 10px;
+                box-shadow: none;
+                border: 1px solid transparent;
+                transition: border-color 0.2s ease;
+            }
+
+            #details .accordion-item:hover {
+                border-color: #b0caec;
+            }
+
+            /* Título del item */
+            #details .accordion-item__title {
+                color: #07294e;
+                font-weight: 700;
+                font-size: 0.92em;
+                padding: 18px 60px 18px 20px;
+                line-height: 1.4;
+            }
+
+            /* Reemplazar el círculo azul por un "+" simple */
+            #details .accordion-item__title::after {
+                content: '+';
+                background-color: transparent;
+                background-image: none;
+                color: #07294e;
+                font-size: 1.6em;
+                font-weight: 300;
+                line-height: 1;
+                width: 30px;
+                height: 30px;
+                border-radius: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Cuando está abierto: cambiar "+" por "×" y no rotar */
+            #details .accordion-item.active .accordion-item__title::after {
+                content: '×';
+                transform: translateY(-50%);
+                font-size: 1.8em;
+            }
+
+            /* Contenido del item abierto */
+            #details .accordion-item__content {
+                padding: 0 20px 18px 20px;
+            }
+
+            #details .accordion-item__content p {
+                color: #2d4a6e;
+                font-size: 0.9em;
+                line-height: 1.65;
+                margin: 0;
+            }
+
+            /* En móvil: columnas apiladas */
+            @media screen and (max-width: 768px) {
+                #details .block-tci.cols-2 > .col-50 {
+                    width: 100% !important;
+                }
+                #details .block-tci.cols-2 {
+                    --gap: 10px;
+                }
+            }
+        </style>
+        <!-- ===================================================== -->
     </head>
     <body
         class="wp-singular page-template page-template-template-prestamoaltoque page-template-template-prestamoaltoque-php page page-id-7312 wp-theme-chapacash_new"
@@ -1096,7 +1205,6 @@
                         src="../../assets/logos/logo-chapacash.svg"
                         class="attachment-full size-full"
                         alt=""
-                        title="logo-chapacash"
                         loading="lazy"
                         decoding="async"
                     />
@@ -1169,7 +1277,6 @@
                     src="../../assets/sliders/IMG-7.webp"
                     class="attachment-full size-full"
                     alt="Gestiona tu préstamo en línea con Chapa Cash"
-                    title="Solicita tu préstamo desde cualquier lugar"
                     decoding="async"
                 />
             </div>
@@ -1188,7 +1295,6 @@
                                             src="../../assets/icons/Vector-13.svg"
                                             class="attachment-full size-full"
                                             alt="Ícono de préstamo rápido de hasta S/ 1,000 con Chapa Cash"
-                                            title="Préstamos hasta S/ 1,000 en minutos"
                                             decoding="async"
                                         />
                                     </figure>
@@ -1200,7 +1306,6 @@
                                             src="../../assets/icons/Vector-14.svg"
                                             class="attachment-full size-full"
                                             alt="Ícono de reloj para préstamos en 60 minutos"
-                                            title="Préstamos inmediatos en menos de 60 minutos"
                                             decoding="async"
                                         />
                                     </figure>
@@ -1214,7 +1319,6 @@
                                             src="../../assets/icons/Vector-15.svg"
                                             class="attachment-full size-full"
                                             alt="Paga tu préstamo Chapa Cash con billetera digital o banca móvil"
-                                            title="Paga fácil con Yape, BCP o Interbank"
                                             decoding="async"
                                         />
                                     </figure>
@@ -1230,59 +1334,224 @@
             </div>
         </section>
 
-<section id="historia" class="section">
-    <h2 class="section-title">¡Beneficios para nuestros clientes!</h2>
-    <div id="historia-linea" class="swiper swiper-initialized swiper-horizontal">
-        <div class="swiper-wrapper" id="swiper-wrapper-da27b71c242f5710b" aria-live="off" style="transition-duration: 0ms; transform: translate3d(-1910px, 0px, 0px); transition-delay: 0ms;">
-            <div class="swiper-slide historia-item" style="width: 382px;" role="group" aria-label="2 / 8">
-                <h3 class="historia-item__title">ValiClub</h3>
-                <figure class="historia-item__image"><img src="../../assets/icons/hinfo03.svg" class="attachment-full size-full" alt="" title="hinfo3" decoding="async"></figure>
-                <div><p>¡Fidelidad que se premia! Disfruta del 4to interés GRATIS, tasas preferenciales y mayores líneas de crédito. Acumula puntos canjeables en MarketPlace (1 punto = S/ 5.00) pagando puntualmente tus intereses. Programa exclusivo para contratos desde S/ 1,000.00 con garantía recuperada. Accede a beneficios únicos manteniendo tu calificación Tipo A y tu excelente historial financiero.</p>
-</div>
+<section id="beneficios-slider" class="section">
+    <div class="container">
+        <h2 class="section-title">¡Beneficios para nuestros clientes!</h2>
+        <div id="slider-beneficios" class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="../../assets/sliders/01.webp" alt="Beneficio 1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../../assets/sliders/02.webp" alt="Beneficio 2">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../../assets/sliders/03.webp" alt="Beneficio 3">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../../assets/sliders/04.webp" alt="Beneficio 4">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../../assets/sliders/01.webp" alt="Beneficio 5">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../../assets/sliders/02.webp" alt="Beneficio 6">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../../assets/sliders/03.webp" alt="Beneficio 7">
+                </div>
             </div>
-            <div class="swiper-slide historia-item" style="width: 382px;" role="group" aria-label="3 / 8">
-                <h3 class="historia-item__title">Tu Lealtad Te Premia</h3>
-                <figure class="historia-item__image"><img src="../../assets/icons/hinfo04.svg" class="attachment-full size-full" alt="" title="hinfo04" decoding="async"></figure>
-                <div><p>Participa en nuestro sorteo mensual exclusivo del 01 de enero al 31 de diciembre de 2026. Acumula opciones realizando un empeño desde S/500 en oro o S/300 en electrodomésticos, pagando tus intereses puntualmente o comprando más de S/500 en nuestro Marketplace. Los sorteos se realizarán el último día de cada mes y los ganadores serán notificados de inmediato. El premio debe reclamarse el mismo día hasta las 18:00 horas, de lo contrario se seleccionará un nuevo ganador. Al participar, aceptas la toma de fotos/video para fines promocionales. Consulta exclusiones y el tratamiento de datos según la Ley N.º 29733. LA EMPRESA se reserva el derecho de modificar la promoción.</p>
-</div>
-            </div>
-            <div class="swiper-slide historia-item" style="width: 382px;" role="group" aria-label="4 / 8">
-                <h3 class="historia-item__title">4to Interés Gratis</h3>
-                <figure class="historia-item__image"><img src="../../assets/icons/historia-factoring.svg" class="attachment-full size-full" alt="" title="historia-factoring" decoding="async"></figure>
-                <div><p>Renueva y ahorra automáticamente! Obtén la exoneración total del pago de intereses en tu cuarta renovación consecutiva de cualquier contrato de empeño vigente durante todo el 2026. Este beneficio personal e intransferible se aplica sin importar el monto o tipo de artículo, permitiéndote también usar el valor del interés para amortizar tu capital. La promoción es válida una sola vez por contrato y no es acumulable con otros descuentos ni canjeable por efectivo.</p>
-</div>
-            </div>
-            <div class="swiper-slide historia-item swiper-slide-prev" style="width: 382px;" role="group" aria-label="5 / 8">
-                <h3 class="historia-item__title">Ticket Gold</h3>
-                <figure class="historia-item__image"><img src="../../assets/icons/historia-chapacambio.svg" class="attachment-full size-full" alt="" title="historia-chapacambio" decoding="async"></figure>
-                <div><p>Obtén este beneficio exclusivo al acumular 5 recomendaciones, sumar contratos por más de S/5000 o realizar compras mayores en Marketplace. El ticket aplica para una renovación de hasta S/2000 en oro o S/1000 en electrodomésticos y es personal e intransferible. Para validarlo, debes presentar el documento físico exactamente el día del vencimiento de tu contrato. No es acumulable con otras promociones ni tasas premium vigentes.</p>
-</div>
-            </div>
-            <div class="swiper-slide historia-item swiper-slide-active" style="width: 382px;" role="group" aria-label="6 / 8">
-                <h3 class="historia-item__title">Gana por Recomendación</h3>
-                <figure class="historia-item__image"><img src="../../assets/icons/historia-sedes.svg" class="attachment-full size-full" alt="" title="historia-sedes" decoding="async"></figure>
-                <div><p>¡Gana S/30 en efectivo por cada nuevo cliente que traigas a CES VALI! Tu recomendado debe ser cliente nuevo, dejar una garantía mínima (Oro S/600 o Electro S/300) y presentar tu copia de DNI al empeñar. El bono se entrega al realizarse el primer pago de intereses y tienes 5 días para reclamarlo en agencia. Si acumulas 5 recomendaciones válidas, obtendrás un Ticket de Exoneración adicional para ti o tus invitados. Aprovecha este beneficio ilimitado vigente hasta el 31 de diciembre de 2026.</p>
-</div>
-            </div>
-            <div class="swiper-slide historia-item swiper-slide-next" style="width: 382px;" role="group" aria-label="7 / 8">
-                <h3 class="historia-item__title">Política de garantía – Marketplace</h3>
-                <figure class="historia-item__image"><img src="../../assets/icons/historia-sedes.svg" class="attachment-full size-full" alt="" title="historia-sedes" decoding="async"></figure>
-                <div><p>Todos nuestros artículos son 100% funcionales y cuentan con 3 meses de garantía por defectos de fabricación presentando tu ticket de compra. La cobertura incluye reparación, cambio o devolución según evaluación técnica en un plazo de hasta 25 días hábiles. Quedan excluidos accesorios, daños por mal uso, humedad, sellos alterados o manipulación externa. No se aceptan devoluciones por cambio de opinión pasadas las 24 horas de la compra en nuestra sede de Talara.</p>
-</div>
-            </div>
-            <div class="swiper-slide historia-item" style="width: 382px;" role="group" aria-label="8 / 8">
-                <h3 class="historia-item__title">Campaña Empeña Emprendedor</h3>
-                <figure class="historia-item__image"><img src="../../assets/icons/producto-altoque.svg" class="attachment-full size-full" alt="" title="producto-altoque" decoding="async"></figure>
-                <div><p>¡Impulsamos tu negocio con S/ 300 en efectivo y publicidad gratuita! Si tienes un emprendimiento propio, regístrate con nuestros asesores para participar en el sorteo único de este incentivo económico. El ganador recibirá el premio y protagonizará un video promocional junto a CES VALI para dar visibilidad a su marca en nuestras redes sociales. Únete como cliente activo y potencia tu crecimiento comercial con nuestra exposición y apoyo directo.</p>
-</div>
+            <div class="swiper-buttons">
+                <a href="#" class="swiper-button-prev"></a>
+                <a href="#" class="swiper-button-next"></a>
             </div>
         </div>
-        <div class="swiper-buttons">
-			<a href="#" class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-da27b71c242f5710b" aria-disabled="false"></a>
-			<a href="#" class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-da27b71c242f5710b" aria-disabled="false"></a>
-		</div>
-    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+    </div>
 </section>
+
+<!-- Scroll to Top Button -->
+<div class="scroll-to-top-container">
+    <button id="scrollToTopBtn" class="scroll-to-top-btn">
+        Solicitar préstamo
+    </button>
+</div>
+
+<style>
+.scroll-to-top-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    background: transparent;
+}
+
+.scroll-to-top-btn {
+    background: #244595;
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(36, 69, 149, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.scroll-to-top-btn:hover {
+    background: #1a3678;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(36, 69, 149, 0.4);
+}
+
+.scroll-to-top-btn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .scroll-to-top-container {
+        padding: 30px 0;
+    }
+    
+    .scroll-to-top-btn {
+        padding: 14px 28px;
+        font-size: 15px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    
+    scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+
+<style>
+#beneficios-slider .swiper {
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+#beneficios-slider .swiper-slide img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+#beneficios-slider .swiper-buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+#beneficios-slider .swiper-button-prev {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.9);
+    color: #07294e;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+#beneficios-slider .swiper-button-next {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.9);
+    color: #07294e;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+#beneficios-slider .swiper-button-prev:hover,
+#beneficios-slider .swiper-button-next:hover {
+    background: #07294e;
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+@media (max-width: 768px) {
+    #beneficios-slider .swiper-slide img {
+        height: 200px;
+    }
+    
+    #beneficios-slider .swiper-button-prev {
+        left: 10px;
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+    
+    #beneficios-slider .swiper-button-next {
+        right: 10px;
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const swiperBeneficios = new Swiper('#slider-beneficios', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: '#beneficios-slider .swiper-button-next',
+            prevEl: '#beneficios-slider .swiper-button-prev',
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+            },
+            768: {
+                slidesPerView: 3,
+            },
+            1024: {
+                slidesPerView: 4,
+            }
+        }
+    });
+});
+</script>
 
         <script>
             // Módulo de Integración Calculadora-Préstamo Unificado
@@ -2668,6 +2937,36 @@
 
         <div class="section-separator"></div>
 
+        <div id="requisitos" class="section">
+            <div class="container">
+                <h2 class="section-title">
+                    Requisitos
+                </h2>
+                <div class="block-tci cols-2 xs-cols s-cols">
+                    <div
+                        class="col-30 s-col-full xs-col-full block-tci__image"
+                    >
+                        <figure>
+                            <img
+                                src="../../assets/images/landing-requisitos.svg"
+                                class="attachment-full size-full"
+                                alt="Requisitos para acceder a préstamo de S/1000 en minutos"
+                                decoding="async"
+                            />
+                        </figure>
+                    </div>
+                    <div
+                        class="col-70 s-col-full xs-col-full block-tci__content"
+                    >
+                        <p>
+                            DNI vigente.<br />
+                            Ser mayor de edad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div id="details" class="section">
             <div class="container">
                 <h2 class="section-title">
@@ -2816,43 +3115,11 @@
             </div>
         </div>
 
-        <div id="requisitos" class="section">
-            <div class="container">
-                <h2 class="section-title">
-                    Requisitos
-                </h2>
-                <div class="block-tci cols-2 xs-cols s-cols">
-                    <div
-                        class="col-30 s-col-full xs-col-full block-tci__image"
-                    >
-                        <figure>
-                            <img
-                                src="../../assets/images/landing-requisitos.svg"
-                                class="attachment-full size-full"
-                                alt="Requisitos para acceder a préstamo de S/1000 en minutos"
-                                title="¿Qué necesitas para tu préstamo rápido?"
-                                decoding="async"
-                            />
-                        </figure>
-                    </div>
-                    <div
-                        class="col-70 s-col-full xs-col-full block-tci__content"
-                    >
-                        <p>
-                            DNI vigente.<br />
-                            Ser mayor de edad.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        
         <section id="trust" class="section">
             <div class="container cols-2 s-cols xs-cols">
                 <div class="trust-content">
                     <h2 class="section-title">
-                        ¿Por qué deberías confiar en Chapa Cash?
+                        ¿Por qué deberías confiar en CESVALI?
                     </h2>
                     <div class="trust-list">
                         <div class="trust-item">
@@ -2861,7 +3128,6 @@
                                     src="../../assets/icons/pq-elegirnos01.svg"
                                     class="attachment-full size-full"
                                     alt=""
-                                    title="pq-elegirnos01"
                                     decoding="async"
                                 />
                             </figure>
@@ -2879,7 +3145,6 @@
                                     src="../../assets/icons/pq-elegirnos02.svg"
                                     class="attachment-full size-full"
                                     alt=""
-                                    title="pq-elegirnos02"
                                     decoding="async"
                                 />
                             </figure>
@@ -2898,7 +3163,6 @@
                                     src="../../assets/icons/pq-elegirnos03.svg"
                                     class="attachment-full size-full"
                                     alt=""
-                                    title="pq-elegirnos03"
                                     decoding="async"
                                 />
                             </figure>
@@ -2927,7 +3191,6 @@
                             src="../../assets/sliders/HOMBRE-ALTQ-1.webp"
                             class="attachment-full size-full"
                             alt=""
-                            title="HOMBRE ALTQ 1"
                             decoding="async"
                         />
                     </figure>
@@ -2953,16 +3216,12 @@
                                         src="../../assets/sliders/testimonio01.webp"
                                         class="attachment-full size-full"
                                         alt=""
-                                        title="testimonio01"
                                         decoding="async"
                                     />
                                 </figure>
-                                <h3>Victoria Paucar</h3>
+                                <h3>María Quispe</h3>
                                 <div>
-                                    "Recomendaría Chapa Cash para que otras
-                                    personas se animen a sacar su préstamo. El
-                                    servicio fue muy rápido y el asesor muy
-                                    amable".
+                                    "Recomendaría CESVALI a cualquiera que necesite un préstamo rápido. El proceso fue sencillo y la atención muy amable".
                                 </div>
                             </article>
                         </div>
@@ -2975,15 +3234,12 @@
                                         src="../../assets/sliders/testimonio02.webp"
                                         class="attachment-full size-full"
                                         alt=""
-                                        title="testimonio02"
                                         decoding="async"
                                     />
                                 </figure>
-                                <h3>Gladys Villa</h3>
+                                <h3>Luis Ramos</h3>
                                 <div>
-                                    "Les recomiendo a todas las personas que
-                                    confíen en Chapa Cash, tienen buenas tasas y
-                                    su servicio es rápido y confiable".
+                                    "Confíen en CESVALI, ofrecen buenas tasas y un servicio ágil. Me ayudaron justo cuando más lo necesitaba".
                                 </div>
                             </article>
                         </div>
@@ -2996,15 +3252,12 @@
                                         src="../../assets/sliders/testimonio03.webp"
                                         class="attachment-full size-full"
                                         alt=""
-                                        title="testimonio03"
                                         decoding="async"
                                     />
                                 </figure>
-                                <h3>Angely</h3>
+                                <h3>Andrea Torres</h3>
                                 <div>
-                                    "La atención fue buena. Me explicaron todo
-                                    lo que debía saber acerca del préstamo. La
-                                    opción era muy buena y la tomé".
+                                    "La atención fue excelente. Me explicaron todo de forma clara y pude tomar la mejor decisión para mi préstamo".
                                 </div>
                             </article>
                         </div>
@@ -3017,15 +3270,12 @@
                                         src="../../assets/sliders/testimonio04.webp"
                                         class="attachment-full size-full"
                                         alt=""
-                                        title="testimonio04"
                                         decoding="async"
                                     />
                                 </figure>
-                                <h3>Pedro Huallpa</h3>
+                                <h3>Carlos Mendoza</h3>
                                 <div>
-                                    "Agradezco a Chapa Cash por la oportunidad
-                                    ya que es una buena opción para las personas
-                                    que necesitan dinero rápido".
+                                    "Estoy muy agradecido con CESVALI, es una gran alternativa para quienes necesitan dinero de manera rápida y segura".
                                 </div>
                             </article>
                         </div>
@@ -3134,7 +3384,6 @@
                             src="../../assets/logos/logo-chapacash-blanco.svg"
                             class="attachment-full size-full"
                             alt=""
-                            title="logo-chapacash-blanco"
                             loading="lazy"
                             decoding="async"
                         />
@@ -3165,7 +3414,6 @@
                                         src="../../assets/icons/social-linkedin.svg"
                                         class="attachment-full size-full"
                                         alt=""
-                                        title="social-linkedin"
                                         decoding="async"
                                         loading="lazy"
                                 /></a>
@@ -3177,7 +3425,6 @@
                                         src="../../assets/icons/social-facebook.svg"
                                         class="attachment-full size-full"
                                         alt=""
-                                        title="social-facebook"
                                         decoding="async"
                                         loading="lazy"
                                 /></a>
@@ -3189,7 +3436,6 @@
                                         src="../../assets/icons/social-instagram.svg"
                                         class="attachment-full size-full"
                                         alt=""
-                                        title="social-instagram"
                                         decoding="async"
                                         loading="lazy"
                                 /></a>
@@ -3200,7 +3446,6 @@
                                         src="../../assets/icons/social-tiktok.svg"
                                         class="attachment-full size-full"
                                         alt=""
-                                        title="social-tiktok"
                                         decoding="async"
                                         loading="lazy"
                                 /></a>
