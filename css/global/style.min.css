@@ -74,7 +74,7 @@ img, svg, button, input[type=submit]{
     background:#fff; 
 }
 ::-webkit-scrollbar-thumb{
-    background:#4CAD36;
+    background:#07294e;
     border-radius:10px;
     transition:all .2s linear;
 }
@@ -116,10 +116,10 @@ h3{
 :root{
     --content-width:1400px;
     --gap:40px;
-    --main-color:#4CAD36;
+    --main-color:#07294e;
     --secondary-color:#244595;
     --text-color:#909090;
-    --link-color:#4CAD36;
+    --link-color:#07294e;
     --bg-1:#F0F7EE;
     interpolate-size:allow-keywords;
 }
@@ -855,7 +855,7 @@ body{
     right:4px;
     top:50%;
     transform:translateY(-50%);
-    background: linear-gradient(180deg, #88DD69 0%, #4CAD36 100%);
+    background: linear-gradient(180deg, #0a3a6b 0%, #07294e 100%);
     border:0;
     display: inline-flex;
     text-indent:-9999em;
@@ -995,7 +995,7 @@ div.single-post{
     padding:30px;
 }
 .related-posts > h3{
-    color:#4CAD36;
+    color:#07294e;
     margin-bottom:30px;
 }
 .related-post:not(:last-of-type){

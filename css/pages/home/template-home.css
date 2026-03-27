@@ -89,6 +89,11 @@
 }
 .product {
     overflow: hidden;
+    height: 250px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .product > * {
     z-index: 1;
@@ -218,6 +223,11 @@
 
     .product {
         padding: 20px;
+        height: 180px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     .product > h3 {
         margin-top: 10px;
