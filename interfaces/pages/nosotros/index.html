@@ -133,7 +133,444 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 
 
     </style>
-<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+        
+        <!-- Enhanced Banner Hero Styles for Nosotros -->
+        <style type="text/css">
+        .hero-banner {
+            background: linear-gradient(135deg, #07294e 0%, #0a3a6b 40%, #1e7a7a 70%, #00d084 100%);
+            color: #ffffff;
+            padding: 60px 20px 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(0, 208, 132, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-banner-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content-left {
+            flex: 1;
+            max-width: 480px;
+        }
+
+        .hero-content-left h2 {
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.5px;
+        }
+
+        .highlight-yellow {
+            background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+            padding: 4px 12px;
+            border-radius: 6px;
+            display: inline-block;
+            color: #07294e;
+            font-weight: 900;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+            animation: highlight-pulse 2s infinite;
+            position: relative;
+        }
+
+        .highlight-yellow::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+            border-radius: 8px;
+            z-index: -1;
+            opacity: 0.6;
+            animation: highlight-glow 3s infinite;
+        }
+
+        @keyframes highlight-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes highlight-glow {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero-description {
+            margin-bottom: 35px;
+        }
+
+        .hero-description p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .ces-vali-tag {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+
+        .consulta-btn {
+            background: linear-gradient(135deg, #07294e 0%, #0a3a6b 100%);
+            border: 3px solid #FFD700;
+            color: #ffffff;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 35px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consulta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .consulta-btn:hover::before {
+            left: 100%;
+        }
+
+        .consulta-btn:hover {
+            background: linear-gradient(135deg, #0a3a6b 0%, #07294e 100%);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), 
+                        0 0 20px rgba(255, 215, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .consulta-btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .hero-visual-right {
+            flex: 1;
+            max-width: 480px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .hero-image-container {
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero-main-image {
+            max-width: 280px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease;
+        }
+
+        .hero-main-image:hover {
+            transform: scale(1.05);
+        }
+
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 70px);
+            gap: 15px;
+            grid-template-areas:
+                "briefcase building . money"
+                ". docs handshake ."
+                "growth target star .";
+            position: relative;
+            min-height: 220px;
+            padding: 15px;
+            width: 100%;
+        }
+
+        .business-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            border-radius: 12px;
+            padding: 12px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .business-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .business-item:hover::before {
+            opacity: 1;
+        }
+
+        .business-item:hover {
+            transform: scale(1.15) rotate(8deg);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1));
+            border-color: rgba(255, 215, 0, 0.6);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 
+                        0 0 15px rgba(255, 215, 0, 0.2);
+        }
+
+        .business-icon {
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .business-item:hover .business-icon {
+            transform: scale(1.2);
+        }
+
+        .sparkle {
+            position: absolute;
+            color: #FFD700;
+            font-size: 16px;
+            animation: sparkle 3s infinite;
+            z-index: 10;
+            filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.8));
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+        }
+
+        .sparkle-1 { top: 20%; left: 20%; animation-delay: 0s; }
+        .sparkle-2 { top: 40%; right: 25%; animation-delay: 0.6s; }
+        .sparkle-3 { bottom: 30%; left: 30%; animation-delay: 1.2s; }
+        .sparkle-4 { top: 60%; right: 20%; animation-delay: 1.8s; }
+        .sparkle-5 { bottom: 40%; right: 10%; animation-delay: 2.4s; }
+
+        @keyframes sparkle {
+            0%, 100% { 
+                opacity: 0; 
+                transform: scale(0.3) rotate(0deg); 
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.3) rotate(180deg); 
+            }
+        }
+
+        .connecting-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(135, 206, 235, 0.8), transparent);
+            border-radius: 3px;
+            z-index: 1;
+            box-shadow: 0 0 8px rgba(135, 206, 235, 0.4);
+            animation: line-pulse 4s infinite;
+        }
+
+        @keyframes line-pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        .line-1 {
+            width: 70px;
+            height: 3px;
+            top: 25%;
+            left: 30%;
+            transform: rotate(25deg);
+            animation-delay: 0s;
+        }
+
+        .line-2 {
+            width: 60px;
+            height: 3px;
+            top: 50%;
+            right: 25%;
+            transform: rotate(-15deg);
+            animation-delay: 1.3s;
+        }
+
+        .line-3 {
+            width: 65px;
+            height: 3px;
+            bottom: 30%;
+            left: 35%;
+            transform: rotate(45deg);
+            animation-delay: 2.6s;
+        }
+
+        .hero-footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-line-left, .footer-line-right {
+            height: 2px;
+            width: 80px;
+            background: linear-gradient(90deg, transparent, #FFD700, #FFA500, #FFD700, transparent);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .ces-vali-footer {
+            color: #FFD700;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
+                         0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 968px) {
+            .hero-banner-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            
+            .hero-content-left {
+                max-width: 100%;
+            }
+            
+            .business-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(3, 60px);
+                gap: 12px;
+                grid-template-areas:
+                    "briefcase building money"
+                    "docs handshake ."
+                    "growth target star";
+            }
+            
+            .hero-main-image {
+                max-width: 220px;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .hero-banner {
+                padding: 40px 15px 30px;
+            }
+            
+            .hero-banner-container {
+                gap: 25px;
+            }
+            
+            .business-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 50px);
+                gap: 10px;
+                grid-template-areas:
+                    "briefcase building"
+                    "money docs"
+                    "handshake growth"
+                    "target star";
+            }
+            
+            .business-item:last-child {
+                display: none;
+            }
+            
+            .business-icon {
+                font-size: 20px;
+            }
+            
+            .consulta-btn {
+                padding: 14px 28px;
+                font-size: 16px;
+            }
+            
+            .hero-main-image {
+                max-width: 180px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .hero-banner {
+                padding: 30px 10px 20px;
+            }
+            
+            .business-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 45px);
+                gap: 8px;
+                min-height: 150px;
+            }
+            
+            .business-icon {
+                font-size: 18px;
+            }
+            
+            .sparkle {
+                font-size: 12px;
+            }
+            
+            .hero-main-image {
+                max-width: 150px;
+            }
+            
+            .hero-content-left h2 {
+                font-size: clamp(28px, 6vw, 36px);
+            }
+            
+            .hero-description p {
+                font-size: 16px;
+            }
+        }
+        </style>
+        <!-- Google Tag Manager for WordPress by gtm4wp.com -->
 <!-- GTM Container placement set to automatic -->
 <script data-cfasync="false" data-pagespeed-no-defer="" type="text/javascript">
 	var dataLayer_content = {"pagePostType":"page","pagePostType2":"single-page","pagePostAuthor":"Contenidos Chapa Cash"};
@@ -182,19 +619,60 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li id="menu-item-7292" class="btn-login menu-item menu-item-type-custom menu-item-object-custom menu-item-7292 depth-0" itemscope="" itemtype="https://schema.org/SiteNavigationElement"><a itemprop="url" href="../../prestamos/" rel="noopener">Pide tu préstamo</a></li>
 </ul></nav>    </div>
 </header>
-<section id="hero">
-    <div class="container cols-2 s-cols xs-cols">
-        <div class="hero-content">
+<section id="hero" class="hero-banner">
+    <div class="hero-banner-container">
+        <div class="hero-content-left">
             <h2>¡HOLA!</h2>
-            <div> 
-<p>Somos empresa peruana especializada en soluciones financieras inmediatas mediante préstamos prendarios(Oro y Electro), orientada a clientes que requieren liquidez rápida y segura.</p>
-<p>Transformamos tus activos en liquidez inmediata.</p>
-<p><strong>"CES VALI, Empeñar nunca fue tan fácil".</strong></p>
-</div>
+            <div class="hero-description">
+                <p>Somos empresa peruana especializada en soluciones financieras inmediatas mediante préstamos prendarios(Oro y Electro), orientada a clientes que requieren liquidez rápida y segura.</p>
+                <p>Transformamos tus activos en <span class="highlight-yellow">liquidez inmediata</span>.</p>
+                <p class="ces-vali-tag"><strong>"CES VALI, Empeñar nunca fue tan fácil".</strong></p>
+            </div>
         </div>
-        <div class="hero-imagen">
-            <figure><img width="413" height="597" src="../../../assets/images/nosotros-hombre.webp" class="attachment-full size-full" alt="" decoding="async" fetchpriority="high"></figure>
+        <div class="hero-visual-right">
+            <div class="hero-image-container">
+                <img src="../../../assets/images/nosotros-hombre.webp" alt="CES VALI - Equipo profesional" class="hero-main-image">
+            </div>
+            <div class="business-grid">
+                <div class="business-item" style="grid-area: briefcase;">
+                    <div class="business-icon">💼</div>
+                </div>
+                <div class="business-item" style="grid-area: building;">
+                    <div class="business-icon">🏢</div>
+                </div>
+                <div class="business-item" style="grid-area: money;">
+                    <div class="business-icon">💰</div>
+                </div>
+                <div class="business-item" style="grid-area: docs;">
+                    <div class="business-icon">📋</div>
+                </div>
+                <div class="business-item" style="grid-area: handshake;">
+                    <div class="business-icon">🤝</div>
+                </div>
+                <div class="business-item" style="grid-area: growth;">
+                    <div class="business-icon">📈</div>
+                </div>
+                <div class="business-item" style="grid-area: target;">
+                    <div class="business-icon">🎯</div>
+                </div>
+                <div class="business-item" style="grid-area: star;">
+                    <div class="business-icon">⭐</div>
+                </div>
+                <div class="sparkle sparkle-1">✦</div>
+                <div class="sparkle sparkle-2">✦</div>
+                <div class="sparkle sparkle-3">✦</div>
+                <div class="sparkle sparkle-4">✦</div>
+                <div class="sparkle sparkle-5">✦</div>
+                <div class="connecting-line line-1"></div>
+                <div class="connecting-line line-2"></div>
+                <div class="connecting-line line-3"></div>
+            </div>
         </div>
+    </div>
+    <div class="hero-footer">
+        <div class="footer-line-left"></div>
+        <div class="ces-vali-footer">CES VALI</div>
+        <div class="footer-line-right"></div>
     </div>
 </section>
 
@@ -242,92 +720,92 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <section id="historia" class="section">
     <div class="container">
-        <h2 class="section-title">Nuestra historia en línea de tiempo</h2>
+        <h2 class="section-title">Nuestra trayectoria y crecimiento en el tiempo</h2>
         <div class="swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide historia-item">
-                    <div class="historia-item__title">2018</div>
+                    <div class="historia-item__title">2022</div>
                     <div class="historia-item__image">
                         <img src="../../../assets/icons/historia-chapacash.svg" alt="Chapa Cash logo">
                     </div>
-                    <div>Nacimiento de Chapa Cash.</div>
-                </div>
-                <div class="swiper-slide historia-item">
-                    <div class="historia-item__title">2019</div>
-                    <div class="historia-item__image">
-                        <img src="../../../assets/icons/hinfo01.svg" alt="SBS icon">
-                    </div>
-                    <div>Nos registramos en la SBS.</div>
-                </div>
-                <div class="swiper-slide historia-item">
-                    <div class="historia-item__title">2019</div>
-                    <div class="historia-item__image">
-                        <img src="../../../assets/icons/hinfo02.svg" alt="Cámara de Comercio icon">
-                    </div>
-                    <div>Nos asociamos a la Cámara de Comercio de Lima.</div>
-                </div>
-                <div class="swiper-slide historia-item">
-                    <div class="historia-item__title">2020</div>
-                    <div class="historia-item__image">
-                        <img src="../../../assets/icons/historia-factoring.svg" alt="Factoring icon">
-                    </div>
-                    <div>Lanzamiento del producto Chapa Factoring.</div>
+                    <div>Nacimiento y Constitución de CES VALI</div>
                 </div>
                 <div class="swiper-slide historia-item">
                     <div class="historia-item__title">2022</div>
                     <div class="historia-item__image">
-                        <img src="../../../assets/icons/historia-chapacambio.svg" alt="CHAPA cambio logo">
+                        <img src="../../../assets/icons/hinfo03.svg" alt="SBS icon">
                     </div>
-                    <div>Lanzamiento de Chapa Cambio.</div>
+                    <div>Nos registramos en la SBS.</div>
+                </div>
+                <div class="swiper-slide historia-item">
+                    <div class="historia-item__title">2022</div>
+                    <div class="historia-item__image">
+                        <img src="../../../assets/icons/casa.svg" alt="Cámara de Comercio icon">
+                    </div>
+                    <div>Apertura de nuestra primera oficina en Talara – Piura.</div>
+                </div>
+                <div class="swiper-slide historia-item">
+                    <div class="historia-item__title">2022</div>
+                    <div class="historia-item__image">
+                        <img src="../../../assets/icons/tv-icon.svg" alt="Factoring icon">
+                    </div>
+                    <div>Lanzamiento de nuestros productos: Préstamo con garantía real en oro y electrodomésticos.</div>
+                </div>
+                <div class="swiper-slide historia-item">
+                    <div class="historia-item__title">2022</div>
+                    <div class="historia-item__image">
+                        <img src="../../../assets/icons/redes.svg" alt="CHAPA cambio logo">
+                    </div>
+                    <div>Activamos nuestros canales digitales.</div>
+                </div>
+                <div class="swiper-slide historia-item">
+                    <div class="historia-item__title">2022</div>
+                    <div class="historia-item__image">
+                        <img src="../../../assets/icons/carrito.svg" alt="Building icon">
+                    </div>
+                    <div>Lanzamiento de nuestra tienda virtual Market Place CES VALI.</div>
                 </div>
                 <div class="swiper-slide historia-item">
                     <div class="historia-item__title">2023</div>
                     <div class="historia-item__image">
-                        <img src="../../../assets/icons/historia-sedes.svg" alt="Building icon">
+                        <img src="../../../assets/icons/grafico-crecimiento.svg" alt="Building icon">
                     </div>
-                    <div>Apertura de nuestra oficina central en Miraflores.</div>
+                    <div>Crecemos en operaciones en el mercado local.</div>
                 </div>
                 <div class="swiper-slide historia-item">
-                    <div class="historia-item__title">2023</div>
+                    <div class="historia-item__title">2024</div>
                     <div class="historia-item__image">
-                        <img src="../../../assets/icons/historia-sedes.svg" alt="Building icon">
+                        <img src="../../../assets/icons/tulealtad.svg" alt="Préstamo Al Toque icon">
                     </div>
-                    <div>Apertura de nuestras sedes en la ciudad de Piura.</div>
-                </div>
-                <div class="swiper-slide historia-item">
-                    <div class="historia-item__title">2025</div>
-                    <div class="historia-item__image">
-                        <img src="../../../assets/icons/producto-altoque.svg" alt="Préstamo Al Toque icon">
-                    </div>
-                    <div>Lanzamiento del producto Préstamo Al Toque.</div>
+                    <div>Lanzamiento del programa “Tu lealtad te premia”.</div>
                 </div>
                 <div class="swiper-slide historia-item">
                     <div class="historia-item__title">2025</div>
                     <div class="historia-item__image">
-                        <img src="../../../assets/icons/historia-joyas.svg" alt="Joyas icon">
+                        <img src="../../../assets/icons/muni.svg" alt="Joyas icon">
                     </div>
-                    <div>Lanzamiento del producto Préstamo con Garantía de Joyas.</div>
+                    <div>Recibimos reconocimiento Municipal como empresa líder del sector en Talara.</div>
                 </div>
                 <div class="swiper-slide historia-item">
                     <div class="historia-item__title">2025</div>
                     <div class="historia-item__image">
-                        <img src="../../../assets/icons/historia-sedes.svg" alt="Building icon">
+                        <img src="../../../assets/icons/edificio.svg" alt="Hipotecario icon">
                     </div>
-                    <div>Apertura de nueva oficina de atención al cliente en Surco.</div>
+                    <div>Apertura de nuestra nueva agencia en Av. E 61.</div>
                 </div>
                 <div class="swiper-slide historia-item">
                     <div class="historia-item__title">2025</div>
                     <div class="historia-item__image">
                         <img src="../../../assets/icons/historia-hipotecario.svg" alt="Hipotecario icon">
                     </div>
-                    <div>Lanzamiento del producto Préstamo con Garantía Hipotecaria.</div>
+                    <div>Lanzamiento del Programa de beneficios ValiClub.</div>
                 </div>
                 <div class="swiper-slide historia-item">
-                    <div class="historia-item__title">2025</div>
+                    <div class="historia-item__title">2026</div>
                     <div class="historia-item__image">
-                        <img src="../../../assets/icons/historia-sedes.svg" alt="Building icon">
+                        <img src="../../../assets/icons/hinfo04.svg" alt="Building icon">
                     </div>
-                    <div>Apertura de nueva oficina de atención al cliente en San Miguel.</div>
+                    <div>Asociación a la Cámara de Comercio, Industrias y Turismo de Talara.</div>
                 </div>
             </div>
             <div class="swiper-button-next"></div>
@@ -471,11 +949,127 @@ a.floating-whatsapp {
 
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/chapacash_new\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
-</script>
 <script type="text/javascript" src="../../../js/vendor/gtm4wp-form-move-tracker.js" id="gtm4wp-form-move-tracker-js"></script>
 <script type="text/javascript" src="../../../js/core/site.js" id="site-js" defer="defer" data-wp-strategy="defer"></script>
 <script type="text/javascript" src="../../../js/vendor/swiper-bundle.min.js" id="swiper-js" defer="defer" data-wp-strategy="defer"></script>
 <script type="text/javascript" src="../../../js/pages/nosotros/template-nosotros.js" id="template-nosotros-js" defer="defer" data-wp-strategy="defer"></script>
-<script defer="" src="../../../assets/pages/nosotros/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;6ba8512a6f3c4629a65d6d8a6ee10685&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossor...
+<script defer="" src="../../../assets/pages/nosotros/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;6ba8512a6f3c4629a65d6d8a6ee10685&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous" referrerpolicy="origin"></script>
 
-</body></html>
+<!-- Enhanced Banner Hero Functionality -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Consulta button functionality
+    const consultaBtn = document.querySelector('.consulta-btn');
+    if (consultaBtn) {
+        consultaBtn.addEventListener('click', function() {
+            // Scroll to the proposito section or open contact form
+            const propositoSection = document.getElementById('proposito');
+            if (propositoSection) {
+                propositoSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            } else {
+                // Fallback: Open WhatsApp
+                window.open('https://wa.me/message/7ILMT3O7CFF4P1', '_blank');
+            }
+        });
+    }
+
+    // Add hover effects to business items
+    const businessItems = document.querySelectorAll('.business-item');
+    businessItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.15) rotate(5deg)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0deg)';
+        });
+    });
+
+    // Animate elements on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe banner elements for animation
+    const heroContent = document.querySelector('.hero-content-left');
+    const heroVisual = document.querySelector('.hero-visual-right');
+    
+    if (heroContent) {
+        heroContent.style.opacity = '0';
+        heroContent.style.transform = 'translateY(30px)';
+        heroContent.style.transition = 'all 0.8s ease';
+        observer.observe(heroContent);
+    }
+    
+    if (heroVisual) {
+        heroVisual.style.opacity = '0';
+        heroVisual.style.transform = 'translateY(30px)';
+        heroVisual.style.transition = 'all 0.8s ease 0.3s';
+        observer.observe(heroVisual);
+    }
+
+    // Add parallax effect to sparkles
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const sparkles = document.querySelectorAll('.sparkle');
+        
+        sparkles.forEach((sparkle, index) => {
+            const speed = 0.5 + (index * 0.1);
+            sparkle.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+    });
+
+    // Add subtle animation to hero image
+    const heroImage = document.querySelector('.hero-main-image');
+    if (heroImage) {
+        heroImage.style.opacity = '0';
+        heroImage.style.transform = 'scale(0.9)';
+        heroImage.style.transition = 'all 1s ease 0.5s';
+        
+        const imageObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'scale(1)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        imageObserver.observe(heroImage);
+    }
+
+    // Animate business items on scroll
+    const businessItemsAnimated = document.querySelectorAll('.business-item');
+    businessItemsAnimated.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px) scale(0.9)';
+        item.style.transition = `all 0.6s ease ${0.8 + (index * 0.1)}s`;
+        
+        const businessObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        businessObserver.observe(item);
+    });
+});
+</script>
+
+</html>

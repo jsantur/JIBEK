@@ -91,10 +91,11 @@
     background-color: #0a3a6b;
 }
 
-#historia .historia-item__title {
+#historia .historia-item > .historia-item__title {
     font-size: clamp(1.5rem, 1.2708rem + 0.8333vw, 2rem);
     text-decoration: underline;
     margin-bottom: 5px;
+    font-weight: bold; /* negrita */
 }
 
 #historia .historia-item__image {

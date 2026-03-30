@@ -1027,6 +1027,492 @@
                 }
             }
         </style>
+        
+        <!-- Enhanced Banner Hero Styles for Préstamos -->
+        <style type="text/css">
+        .hero-banner {
+            background: linear-gradient(135deg, #07294e 0%, #0a3a6b 40%, #1e7a7a 70%, #00d084 100%);
+            color: #ffffff;
+            padding: 80px 20px 50px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(0, 208, 132, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-banner-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content-left {
+            flex: 1;
+            max-width: 520px;
+        }
+
+        .hero-content-left h2 {
+            font-size: clamp(32px, 4.5vw, 48px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.5px;
+        }
+
+        .highlight-yellow {
+            background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+            padding: 4px 12px;
+            border-radius: 6px;
+            display: inline-block;
+            color: #07294e;
+            font-weight: 900;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+            animation: highlight-pulse 2s infinite;
+            position: relative;
+        }
+
+        .highlight-yellow::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+            border-radius: 8px;
+            z-index: -1;
+            opacity: 0.6;
+            animation: highlight-glow 3s infinite;
+        }
+
+        @keyframes highlight-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes highlight-glow {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero-description {
+            margin-bottom: 40px;
+        }
+
+        .hero-description p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .ces-vali-tag {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-top: 24px;
+        }
+
+        .consulta-btn {
+            background: linear-gradient(135deg, #07294e 0%, #0a3a6b 100%);
+            border: 3px solid #FFD700;
+            color: #ffffff;
+            padding: 18px 36px;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 35px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consulta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .consulta-btn:hover::before {
+            left: 100%;
+        }
+
+        .consulta-btn:hover {
+            background: linear-gradient(135deg, #0a3a6b 0%, #07294e 100%);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), 
+                        0 0 20px rgba(255, 215, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .consulta-btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .hero-visual-right {
+            flex: 1;
+            max-width: 520px;
+            position: relative;
+        }
+
+        .appliances-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 85px);
+            gap: 25px;
+            grid-template-areas:
+                "washing fridge . tv"
+                "microwave . coffee toaster"
+                ". stove coins1 ring"
+                ". . coins2 necklace";
+            position: relative;
+            min-height: 340px;
+            padding: 20px;
+        }
+
+        .appliance-item, .money-item, .jewelry-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            border-radius: 15px;
+            padding: 15px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .appliance-item::before, .money-item::before, .jewelry-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .appliance-item:hover::before, .money-item:hover::before, .jewelry-item:hover::before {
+            opacity: 1;
+        }
+
+        .appliance-item:hover, .money-item:hover, .jewelry-item:hover {
+            transform: scale(1.15) rotate(8deg);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1));
+            border-color: rgba(255, 215, 0, 0.6);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 
+                        0 0 15px rgba(255, 215, 0, 0.2);
+        }
+
+        .appliance-icon, .money-icon, .jewelry-icon {
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .appliance-item:hover .appliance-icon,
+        .money-item:hover .money-icon,
+        .jewelry-item:hover .jewelry-icon {
+            transform: scale(1.2);
+        }
+
+        .sparkle {
+            position: absolute;
+            color: #FFD700;
+            font-size: 18px;
+            animation: sparkle 3s infinite;
+            z-index: 10;
+            filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.8));
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+        }
+
+        .sparkle-1 { top: 15%; left: 25%; animation-delay: 0s; }
+        .sparkle-2 { top: 35%; right: 20%; animation-delay: 0.6s; }
+        .sparkle-3 { bottom: 25%; left: 35%; animation-delay: 1.2s; }
+        .sparkle-4 { top: 65%; right: 30%; animation-delay: 1.8s; }
+        .sparkle-5 { bottom: 45%; right: 15%; animation-delay: 2.4s; }
+
+        @keyframes sparkle {
+            0%, 100% { 
+                opacity: 0; 
+                transform: scale(0.3) rotate(0deg); 
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.3) rotate(180deg); 
+            }
+        }
+
+        .connecting-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(135, 206, 235, 0.8), transparent);
+            border-radius: 3px;
+            z-index: 1;
+            box-shadow: 0 0 8px rgba(135, 206, 235, 0.4);
+            animation: line-pulse 4s infinite;
+        }
+
+        @keyframes line-pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        .line-1 {
+            width: 90px;
+            height: 3px;
+            top: 25%;
+            left: 35%;
+            transform: rotate(25deg);
+            animation-delay: 0s;
+        }
+
+        .line-2 {
+            width: 70px;
+            height: 3px;
+            top: 50%;
+            right: 30%;
+            transform: rotate(-15deg);
+            animation-delay: 1.3s;
+        }
+
+        .line-3 {
+            width: 80px;
+            height: 3px;
+            bottom: 30%;
+            left: 40%;
+            transform: rotate(45deg);
+            animation-delay: 2.6s;
+        }
+
+        .hero-footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-line-left, .footer-line-right {
+            height: 2px;
+            width: 100px;
+            background: linear-gradient(90deg, transparent, #FFD700, #FFA500, #FFD700, transparent);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .ces-vali-footer {
+            color: #FFD700;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
+                         0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background: rgba(7, 41, 78, 0.05);
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(7, 41, 78, 0.1);
+        }
+
+        .benefits-list {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .benefit-item {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(7, 41, 78, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(7, 41, 78, 0.15);
+        }
+
+        .benefit-icon {
+            font-size: 32px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #07294e, #1e7a7a);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .benefit-text strong {
+            font-size: 16px;
+            font-weight: 700;
+            color: #07294e;
+            line-height: 1.3;
+        }
+
+        .benefit-text span {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 968px) {
+            .hero-banner-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            
+            .hero-content-left {
+                max-width: 100%;
+            }
+            
+            .appliances-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(4, 70px);
+                gap: 15px;
+                grid-template-areas:
+                    "washing fridge tv"
+                    "microwave coffee toaster"
+                    "stove coins1 ring"
+                    ". coins2 necklace";
+            }
+            
+            .benefits-list {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .benefit-item {
+                min-width: auto;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .hero-banner {
+                padding: 40px 15px 30px;
+            }
+            
+            .appliances-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(5, 60px);
+                gap: 12px;
+                grid-template-areas:
+                    "washing fridge"
+                    "tv microwave"
+                    "coffee toaster"
+                    "stove coins1"
+                    "ring coins2";
+            }
+            
+            .jewelry-item:last-child {
+                display: none;
+            }
+            
+            .appliance-icon, .money-icon, .jewelry-icon {
+                font-size: 24px;
+            }
+            
+            .consulta-btn {
+                padding: 14px 28px;
+                font-size: 16px;
+            }
+            
+            .benefit-item {
+                padding: 15px;
+            }
+            
+            .benefit-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .hero-banner {
+                padding: 30px 10px 20px;
+            }
+            
+            .appliances-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 50px);
+                gap: 10px;
+                min-height: 200px;
+            }
+            
+            .appliance-icon, .money-icon, .jewelry-icon {
+                font-size: 20px;
+            }
+            
+            .sparkle {
+                font-size: 12px;
+            }
+            
+            .benefit-text strong {
+                font-size: 14px;
+            }
+            
+            .benefit-text span {
+                font-size: 12px;
+            }
+        }
+        </style>
         <!-- Google Tag Manager for WordPress by gtm4wp.com -->
         <!-- GTM Container placement set to automatic -->
         <script
@@ -1235,8 +1721,8 @@
                             itemscope=""
                             itemtype="https://schema.org/SiteNavigationElement"
                         >
-                            <a itemprop="url" href="#calculadora-oro"
-                                >Herramientas</a
+                            <a itemprop="url" href="#beneficios-slider"
+                                >Beneficios</a
                             >
                         </li>
                         <li
@@ -1269,65 +1755,92 @@
                 </nav>
             </div>
         </header>
-        <section id="hero" class="section">
-            <div class="hero-background">
-                <img
-                    width="1920"
-                    height="829"
-                    src="../../assets/sliders/IMG-7.webp"
-                    class="attachment-full size-full"
-                    alt="Gestiona tu préstamo en línea con Chapa Cash"
-                    decoding="async"
-                />
+        <section id="hero" class="hero-banner">
+            <div class="hero-banner-container">
+                <div class="hero-content-left">
+                    <h2>Préstamos Rápidos y Seguros 100% Online</h2>
+                    <div class="hero-description">
+                        <p>¡Solicita tu préstamo de lunes a viernes, de 9:00 am a 6:00 pm, y sábados de 9:00 am a 1:00 pm!</p>
+                        <p>Obtén hasta <span class="highlight-yellow">S/ 1,000</span> de forma rápida y segura.</p>
+                        <p>Recibe tu dinero en <span class="highlight-yellow">minutos</span> y paga fácilmente.</p>
+                        <p class="ces-vali-tag"><strong>"CES VALI, Tu dinero al instante".</strong></p>
+                    </div>
+                    </div>
+                <div class="hero-visual-right">
+                    <div class="appliances-grid">
+                        <div class="appliance-item" style="grid-area: washing;">
+                            <div class="appliance-icon money">💰</div>
+                        </div>
+                        <div class="appliance-item" style="grid-area: fridge;">
+                            <div class="appliance-icon card">💳</div>
+                        </div>
+                        <div class="appliance-item" style="grid-area: microwave;">
+                            <div class="appliance-icon phone">📱</div>
+                        </div>
+                        <div class="appliance-item" style="grid-area: tv;">
+                            <div class="appliance-icon cash">💸</div>
+                        </div>
+                        <div class="appliance-item" style="grid-area: coffee;">
+                            <div class="appliance-icon bank">🏦</div>
+                        </div>
+                        <div class="appliance-item" style="grid-area: toaster;">
+                            <div class="appliance-icon time">⏰</div>
+                        </div>
+                        <div class="appliance-item" style="grid-area: stove;">
+                            <div class="appliance-icon docs">📋</div>
+                        </div>
+                        <div class="money-item" style="grid-area: coins1;">
+                            <div class="money-icon coins">🪙</div>
+                        </div>
+                        <div class="money-item" style="grid-area: coins2;">
+                            <div class="money-icon yape">💰</div>
+                        </div>
+                        <div class="jewelry-item" style="grid-area: ring;">
+                            <div class="jewelry-icon check">✅</div>
+                        </div>
+                        <div class="jewelry-item" style="grid-area: necklace;">
+                            <div class="jewelry-icon approve">👍</div>
+                        </div>
+                        <div class="sparkle sparkle-1">✦</div>
+                        <div class="sparkle sparkle-2">✦</div>
+                        <div class="sparkle sparkle-3">✦</div>
+                        <div class="sparkle sparkle-4">✦</div>
+                        <div class="sparkle sparkle-5">✦</div>
+                        <div class="connecting-line line-1"></div>
+                        <div class="connecting-line line-2"></div>
+                        <div class="connecting-line line-3"></div>
+                    </div>
+                </div>
             </div>
-            <div class="hero-body container">
-                <div class="hero-contenido">
-                    <div class="hero-layout-horizontal">
-                        <div class="hero-text-content">
-                            <h1>Préstamos Rápidos y Seguros 100% Online</h1>
-                            <div>
-                                ¡Solicita tu préstamo de lunes a viernes, de 9:00 am a 6:00 pm, y sábados de 9:00 am a 1:00 pm!
-                            </div>
-                            <ul>
-                                <li>
-                                    <figure>
-                                        <img
-                                            src="../../assets/icons/Vector-13.svg"
-                                            class="attachment-full size-full"
-                                            alt="Ícono de préstamo rápido de hasta S/ 1,000 con Chapa Cash"
-                                            decoding="async"
-                                        />
-                                    </figure>
-                                    <span>Obtén hasta <b>S/ 1,000</b></span>
-                                </li>
-                                <li>
-                                    <figure>
-                                        <img
-                                            src="../../assets/icons/Vector-14.svg"
-                                            class="attachment-full size-full"
-                                            alt="Ícono de reloj para préstamos en 60 minutos"
-                                            decoding="async"
-                                        />
-                                    </figure>
-                                    <span
-                                        >Recibe tu dinero en <b>minutos</b></span
-                                    >
-                                </li>
-                                <li>
-                                    <figure>
-                                        <img
-                                            src="../../assets/icons/Vector-15.svg"
-                                            class="attachment-full size-full"
-                                            alt="Paga tu préstamo Chapa Cash con billetera digital o banca móvil"
-                                            decoding="async"
-                                        />
-                                    </figure>
-                                    <span
-                                        >Paga a través de:
-                                        <b>YAPE, BCP e INTERBANK.</b></span
-                                    >
-                                </li>
-                            </ul>
+            <div class="hero-footer">
+                <div class="footer-line-left"></div>
+                <div class="ces-vali-footer">CES VALI</div>
+                <div class="footer-line-right"></div>
+            </div>
+        </section>
+
+        <section class="benefits-section">
+            <div class="container">
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">💰</div>
+                        <div class="benefit-text">
+                            <strong>Obtén hasta S/ 1,000</strong>
+                            <span>Monto máximo de préstamo</span>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">⏰</div>
+                        <div class="benefit-text">
+                            <strong>Recibe tu dinero en minutos</strong>
+                            <span>Aprobación rápida y sin trámites</span>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📱</div>
+                        <div class="benefit-text">
+                            <strong>Paga a través de: YAPE, BCP e INTERBANK</strong>
+                            <span>Múltiples opciones de pago</span>
                         </div>
                     </div>
                 </div>
@@ -1436,6 +1949,104 @@ document.addEventListener('DOMContentLoaded', function() {
             top: 0,
             behavior: 'smooth'
         });
+    });
+});
+</script>
+
+<!-- Enhanced Banner Hero Functionality -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Consulta button functionality
+    const consultaBtn = document.querySelector('.consulta-btn');
+    if (consultaBtn) {
+        consultaBtn.addEventListener('click', function() {
+            // Scroll to the beneficios section or open contact form
+            const beneficiosSection = document.getElementById('beneficios-slider');
+            if (beneficiosSection) {
+                beneficiosSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            } else {
+                // Fallback: Open WhatsApp
+                window.open('https://wa.me/message/7ILMT3O7CFF4P1', '_blank');
+            }
+        });
+    }
+
+    // Add hover effects to appliance items
+    const applianceItems = document.querySelectorAll('.appliance-item, .money-item, .jewelry-item');
+    applianceItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.15) rotate(5deg)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0deg)';
+        });
+    });
+
+    // Animate elements on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe banner elements for animation
+    const heroContent = document.querySelector('.hero-content-left');
+    const heroVisual = document.querySelector('.hero-visual-right');
+    
+    if (heroContent) {
+        heroContent.style.opacity = '0';
+        heroContent.style.transform = 'translateY(30px)';
+        heroContent.style.transition = 'all 0.8s ease';
+        observer.observe(heroContent);
+    }
+    
+    if (heroVisual) {
+        heroVisual.style.opacity = '0';
+        heroVisual.style.transform = 'translateY(30px)';
+        heroVisual.style.transition = 'all 0.8s ease 0.3s';
+        observer.observe(heroVisual);
+    }
+
+    // Add parallax effect to sparkles
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const sparkles = document.querySelectorAll('.sparkle');
+        
+        sparkles.forEach((sparkle, index) => {
+            const speed = 0.5 + (index * 0.1);
+            sparkle.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+    });
+
+    // Animate benefit items on scroll
+    const benefitItems = document.querySelectorAll('.benefit-item');
+    benefitItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = `all 0.6s ease ${index * 0.1}s`;
+        
+        const benefitObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        benefitObserver.observe(item);
     });
 });
 </script>

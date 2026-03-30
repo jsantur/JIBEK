@@ -1,14 +1,57 @@
 /* PRÉSTAMOS PAGE - CES VALI THEME */
 
+/* Fix para desbordamiento de calculadora */
+.hero-banner-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr minmax(350px, 450px);
+    gap: 25px;
+    align-items: start;
+    position: relative;
+    z-index: 2;
+    padding: 50px 20px;
+    box-sizing: border-box;
+}
+
+.hero-visual-right {
+    min-width: 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.hero-calculator-wrap {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Ajustes responsive */
+@media (max-width: 900px) {
+    .hero-banner-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-banner-container {
+        padding: 32px 16px;
+    }
+}
+
 #hero {
     --content-width: 601px;
     position: relative;
     height: 464px;
+    
 }
 #hero > .container {
     --gap: 12vw;
     max-width: 601px;
     margin: 0 auto;
+    
 }
 .hero-body {
     position: relative;
