@@ -163,14 +163,14 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 40px;
+            gap: 60px;
             position: relative;
             z-index: 2;
         }
 
         .hero-content-left {
-            flex: 1;
-            max-width: 480px;
+            flex: 0 0 45%;
+            max-width: 500px;
         }
 
         .hero-content-left h2 {
@@ -285,13 +285,13 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
         }
 
         .hero-visual-right {
-            flex: 1;
-            max-width: 480px;
+            flex: 0 0 55%;
+            max-width: 600px;
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            justify-content: center;
         }
 
         .hero-image-container {
@@ -299,151 +299,41 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
             z-index: 3;
         }
 
+        .hero-image-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 208, 132, 0.1) 100%);
+            border-radius: 25px;
+            z-index: -1;
+            opacity: 0.7;
+            animation: image-glow 3s infinite alternate;
+        }
+
+        @keyframes image-glow {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.02); }
+        }
+
         .hero-main-image {
-            max-width: 280px;
+            max-width: 500px;
+            width: 100%;
             height: auto;
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            transition: transform 0.4s ease;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            z-index: 3;
         }
 
         .hero-main-image:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
         }
 
-        .business-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(3, 70px);
-            gap: 15px;
-            grid-template-areas:
-                "briefcase building . money"
-                ". docs handshake ."
-                "growth target star .";
-            position: relative;
-            min-height: 220px;
-            padding: 15px;
-            width: 100%;
-        }
-
-        .business-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
-            border-radius: 12px;
-            padding: 12px;
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .business-item::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .business-item:hover::before {
-            opacity: 1;
-        }
-
-        .business-item:hover {
-            transform: scale(1.15) rotate(8deg);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1));
-            border-color: rgba(255, 215, 0, 0.6);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 
-                        0 0 15px rgba(255, 215, 0, 0.2);
-        }
-
-        .business-icon {
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
-            transition: transform 0.3s ease;
-        }
-
-        .business-item:hover .business-icon {
-            transform: scale(1.2);
-        }
-
-        .sparkle {
-            position: absolute;
-            color: #FFD700;
-            font-size: 16px;
-            animation: sparkle 3s infinite;
-            z-index: 10;
-            filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.8));
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-        }
-
-        .sparkle-1 { top: 20%; left: 20%; animation-delay: 0s; }
-        .sparkle-2 { top: 40%; right: 25%; animation-delay: 0.6s; }
-        .sparkle-3 { bottom: 30%; left: 30%; animation-delay: 1.2s; }
-        .sparkle-4 { top: 60%; right: 20%; animation-delay: 1.8s; }
-        .sparkle-5 { bottom: 40%; right: 10%; animation-delay: 2.4s; }
-
-        @keyframes sparkle {
-            0%, 100% { 
-                opacity: 0; 
-                transform: scale(0.3) rotate(0deg); 
-            }
-            50% { 
-                opacity: 1; 
-                transform: scale(1.3) rotate(180deg); 
-            }
-        }
-
-        .connecting-line {
-            position: absolute;
-            background: linear-gradient(90deg, transparent, rgba(135, 206, 235, 0.8), transparent);
-            border-radius: 3px;
-            z-index: 1;
-            box-shadow: 0 0 8px rgba(135, 206, 235, 0.4);
-            animation: line-pulse 4s infinite;
-        }
-
-        @keyframes line-pulse {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 1; }
-        }
-
-        .line-1 {
-            width: 70px;
-            height: 3px;
-            top: 25%;
-            left: 30%;
-            transform: rotate(25deg);
-            animation-delay: 0s;
-        }
-
-        .line-2 {
-            width: 60px;
-            height: 3px;
-            top: 50%;
-            right: 25%;
-            transform: rotate(-15deg);
-            animation-delay: 1.3s;
-        }
-
-        .line-3 {
-            width: 65px;
-            height: 3px;
-            bottom: 30%;
-            left: 35%;
-            transform: rotate(45deg);
-            animation-delay: 2.6s;
-        }
 
         .hero-footer {
             display: flex;
@@ -477,25 +367,23 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
             .hero-banner-container {
                 flex-direction: column;
                 text-align: center;
-                gap: 30px;
+                gap: 40px;
             }
             
             .hero-content-left {
+                flex: 1;
                 max-width: 100%;
+                order: 2;
             }
             
-            .business-grid {
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: repeat(3, 60px);
-                gap: 12px;
-                grid-template-areas:
-                    "briefcase building money"
-                    "docs handshake ."
-                    "growth target star";
+            .hero-visual-right {
+                flex: 1;
+                max-width: 100%;
+                order: 1;
             }
             
             .hero-main-image {
-                max-width: 220px;
+                max-width: 400px;
             }
         }
 
@@ -505,35 +393,16 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
             }
             
             .hero-banner-container {
-                gap: 25px;
+                gap: 30px;
             }
             
-            .business-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(4, 50px);
-                gap: 10px;
-                grid-template-areas:
-                    "briefcase building"
-                    "money docs"
-                    "handshake growth"
-                    "target star";
-            }
-            
-            .business-item:last-child {
-                display: none;
-            }
-            
-            .business-icon {
-                font-size: 20px;
+            .hero-main-image {
+                max-width: 350px;
             }
             
             .consulta-btn {
                 padding: 14px 28px;
                 font-size: 16px;
-            }
-            
-            .hero-main-image {
-                max-width: 180px;
             }
         }
 
@@ -542,23 +411,8 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
                 padding: 30px 10px 20px;
             }
             
-            .business-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(3, 45px);
-                gap: 8px;
-                min-height: 150px;
-            }
-            
-            .business-icon {
-                font-size: 18px;
-            }
-            
-            .sparkle {
-                font-size: 12px;
-            }
-            
             .hero-main-image {
-                max-width: 150px;
+                max-width: 280px;
             }
             
             .hero-content-left h2 {
@@ -632,40 +486,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="hero-visual-right">
             <div class="hero-image-container">
                 <img src="../../../assets/images/nosotros-hombre.webp" alt="CES VALI - Equipo profesional" class="hero-main-image">
-            </div>
-            <div class="business-grid">
-                <div class="business-item" style="grid-area: briefcase;">
-                    <div class="business-icon">💼</div>
-                </div>
-                <div class="business-item" style="grid-area: building;">
-                    <div class="business-icon">🏢</div>
-                </div>
-                <div class="business-item" style="grid-area: money;">
-                    <div class="business-icon">💰</div>
-                </div>
-                <div class="business-item" style="grid-area: docs;">
-                    <div class="business-icon">📋</div>
-                </div>
-                <div class="business-item" style="grid-area: handshake;">
-                    <div class="business-icon">🤝</div>
-                </div>
-                <div class="business-item" style="grid-area: growth;">
-                    <div class="business-icon">📈</div>
-                </div>
-                <div class="business-item" style="grid-area: target;">
-                    <div class="business-icon">🎯</div>
-                </div>
-                <div class="business-item" style="grid-area: star;">
-                    <div class="business-icon">⭐</div>
-                </div>
-                <div class="sparkle sparkle-1">✦</div>
-                <div class="sparkle sparkle-2">✦</div>
-                <div class="sparkle sparkle-3">✦</div>
-                <div class="sparkle sparkle-4">✦</div>
-                <div class="sparkle sparkle-5">✦</div>
-                <div class="connecting-line line-1"></div>
-                <div class="connecting-line line-2"></div>
-                <div class="connecting-line line-3"></div>
             </div>
         </div>
     </div>
@@ -976,18 +796,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Add hover effects to business items
-    const businessItems = document.querySelectorAll('.business-item');
-    businessItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.15) rotate(5deg)';
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1) rotate(0deg)';
-        });
-    });
-
     // Animate elements on scroll
     const observerOptions = {
         threshold: 0.1,
@@ -1021,17 +829,6 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(heroVisual);
     }
 
-    // Add parallax effect to sparkles
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const sparkles = document.querySelectorAll('.sparkle');
-        
-        sparkles.forEach((sparkle, index) => {
-            const speed = 0.5 + (index * 0.1);
-            sparkle.style.transform = `translateY(${scrolled * speed}px)`;
-        });
-    });
-
     // Add subtle animation to hero image
     const heroImage = document.querySelector('.hero-main-image');
     if (heroImage) {
@@ -1051,24 +848,6 @@ document.addEventListener('DOMContentLoaded', function() {
         imageObserver.observe(heroImage);
     }
 
-    // Animate business items on scroll
-    const businessItemsAnimated = document.querySelectorAll('.business-item');
-    businessItemsAnimated.forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px) scale(0.9)';
-        item.style.transition = `all 0.6s ease ${0.8 + (index * 0.1)}s`;
-        
-        const businessObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0) scale(1)';
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        businessObserver.observe(item);
-    });
 });
 </script>
 
